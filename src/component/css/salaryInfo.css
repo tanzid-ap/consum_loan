@@ -1,0 +1,134 @@
+@media screen and (min-width: 400px) {
+
+
+    .salaryInfo{
+        width: 75%;
+        position: relative;
+        border: 1px solid crimson;
+        border-radius: 1rem;
+        padding: 1rem 1rem 1rem 1rem;
+        margin-top: 5%;
+        margin-bottom: 10px;
+        margin-left: 7%;
+    }
+
+
+    .salaryInfoLabel{
+        width: 100%;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.7rem;
+        font-weight: bold;
+        color: crimson;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+
+    .tableText{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.6rem;
+        color: crimson;
+    }
+
+
+    .tableDataInput{
+        height: 0.8rem;
+        width: 90%;
+        background: 0 0;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.6rem;
+        margin-left: 5px;
+        margin-right: 15px;
+        color: #0c0c0c;
+    }
+
+
+    
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 800px) {
+
+    .salaryInfo{
+        width: 60%;
+        position: relative;
+        border: 1px solid crimson;
+        border-radius: 1rem;
+        padding: 1rem 1rem 1rem 1rem;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 20%;
+        
+    }
+
+    .serviceField{
+        margin-left: 5%;
+    }
+
+
+    .salaryInfoLabel{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 1rem;
+        font-weight: bold;
+        color: crimson;
+        text-align: center;
+    }
+
+    .fullTable{
+        width: 100%;
+    }
+    
+    table{
+        width: 100%;
+    }
+
+
+    .tableHead{
+        width: 100%;
+    }
+
+
+
+    .tableText{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        color: crimson;
+    }
+
+
+    .tableDataInput{
+        height: 1rem;
+        width: 90%;
+        background: 0 0;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        margin-left: 5px;
+        margin-right: 15px;
+        color: #0c0c0c;
+    }
+
+    
+
+
+
+}

@@ -1,0 +1,99 @@
+.body{
+    background: white;
+    /* background-image: url('../assets/buet_backgroud.jpeg'); */
+    background-repeat: no-repeat;
+    /* background-size: 100% 50vw; */
+    
+}
+
+
+
+@media screen and (min-width: 400px) {
+
+    .singleButton{
+        margin-left: 42%;
+        margin-bottom: 5%;
+    }
+
+    .normalButton{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.7rem;
+        color: crimson;
+        height: 1.7rem;
+        width: 3.5rem;
+        border-radius: 2rem;
+        background-color: white;
+        border-color: crimson;
+
+    }
+
+    .doubleButton{
+        margin-top: 2%;
+        display: flex;
+        margin-left: 25%;
+        margin-bottom: 5%;
+    }
+
+
+    .buttonMargin{
+        margin-right: 35%;
+    }
+
+}
+
+
+@media screen and (min-width: 800px) {
+
+    .singleButton{
+        margin-left: 48%;
+        margin-bottom: 5%;
+    }
+
+    .normalButton{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 1rem;
+        color: crimson;
+        height: 2.5rem;
+        width: 5rem;
+        border-radius: 2rem;
+        background-color: white;
+        border-color: crimson;
+
+    }
+
+    .doubleButton{
+        margin-top: 2%;
+        display: flex;
+        margin-left: 30%;
+        margin-bottom: 5%;
+    }
+
+
+    .buttonMargin{
+        margin-right: 35%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

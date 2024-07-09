@@ -1,0 +1,131 @@
+@media screen and (min-width: 400px) {
+
+
+    .loanInfo{
+        width: 75%;
+        position: relative;
+        border: 1px solid crimson;
+        border-radius: 1rem;
+        padding: 1rem 1rem 1rem 1rem;
+        margin-top: 5%;
+        margin-bottom: 15px;
+        margin-left: 7%;
+    }
+
+
+    .loanInfoLabel{
+        width: 100%;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.7rem;
+        font-weight: bold;
+        color: crimson;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .tableHeadText{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.6rem;
+        color: crimson;
+    }
+
+
+    .tableText{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.6rem;
+        color: crimson;
+    }
+
+
+    .tableDataInput{
+        height: 0.8rem;
+        width: 90%;
+        background: 0 0;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.6rem;
+        margin-left: 5px;
+        margin-right: 15px;
+        color: #0c0c0c;
+    }
+
+
+    
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 800px) {
+
+    .loanInfo{
+        width: 80%;
+        position: relative;
+        border: 1px solid crimson;
+        border-radius: 1rem;
+        padding: 1rem 1rem 1rem 1rem;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 10%;
+        
+    }
+
+
+
+
+    .loanInfoLabel{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 1rem;
+        font-weight: bold;
+        color: crimson;
+        text-align: center;
+    }
+
+    .tableHeadText{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        color: crimson;
+    }
+
+
+
+    .tableText{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        color: crimson;
+    }
+
+
+    .tableDataInput{
+        height: 1rem;
+        width: 90%;
+        background: 0 0;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        margin-left: 5px;
+        margin-right: 15px;
+        color: #0c0c0c;
+    }
+
+    
+
+
+
+}

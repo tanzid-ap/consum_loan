@@ -1,0 +1,88 @@
+
+
+
+@media screen and (min-width: 400px) {
+
+    .piDataField{
+
+        width: 100%;
+        position: relative;
+        margin-bottom: 10px;
+    }
+
+
+    .piDataLabel{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.6rem;
+        color: crimson;
+    }
+
+    .piDataInputField{
+        display: flex;
+        width: 60%;
+    }
+
+
+    .piDataInput{
+        height: 0.8rem;
+        width: 100%;
+        background: 0 0;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.6rem;
+        color: #0c0c0c;
+    }
+
+    .piDataClearBtn{
+        display: block;
+        float: right;
+        position: relative;
+        font-size: 0.6rem;
+        font-weight: bold;
+        color: #6b6b6b;
+        background-color: white;
+        border-color: white;
+    }
+}
+
+
+@media screen and (min-width: 800px) {
+    .piDataField{
+        width: 100%;
+        margin-bottom: 2%;
+        display: flex;
+    }
+
+
+    .piDataLabel{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        color: crimson;
+        margin-right: 1rem;
+    }
+
+    .piDataInputField{
+        display: flex;
+        width: 60%;
+    }
+
+    .piDataInput{
+        height: 1rem;
+        width: 100%;
+        background: 0 0;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        color: #0c0c0c;
+    }
+
+    .piDataClearBtn{
+        display: block;
+        float: right;
+        position: relative;
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: #6b6b6b;
+        background-color: white;
+        border-color: white;
+    }
+
+}

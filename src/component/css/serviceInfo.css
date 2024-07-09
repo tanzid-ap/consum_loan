@@ -1,0 +1,154 @@
+
+
+
+@media screen and (min-width: 400px) {
+
+
+    .serviceInfo{
+        width: 75%;
+        position: relative;
+        border: 1px solid crimson;
+        border-radius: 1rem;
+        padding: 1rem 1rem 1rem 1rem;
+        margin-top: 5%;
+        margin-bottom: 10px;
+        margin-left: 7%;
+    }
+
+
+    .serviceInfoLabel{
+        width: 100%;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.7rem;
+        font-weight: bold;
+        color: crimson;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .siDataCheckBoxField{
+        position: relative;
+        line-height: 0;
+        margin-bottom: 35px;
+        margin-top: 20px;
+    }
+    
+    
+    .siDataCheckBoxLabel{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.6rem;
+        color: crimson;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+
+    .siDataCheckBox{
+        margin-right: 0.5rem;
+        float: left;
+    }
+    
+    .siDataCheckBoxInput{
+        height: 0.8rem;
+        width: 20px;
+        color: black;
+    
+    }
+    
+    .siDataCheckBoxValue{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.6rem;
+        color: black;
+        position: relative;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 800px) {
+
+    .serviceInfo{
+        width: 60%;
+        position: relative;
+        border: 1px solid crimson;
+        border-radius: 1rem;
+        padding: 1rem 1rem 1rem 1rem;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-left: 20%;
+        
+    }
+
+    .serviceField{
+        margin-left: 5%;
+    }
+
+
+    .serviceInfoLabel{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 1rem;
+        font-weight: bold;
+        color: crimson;
+        text-align: center;
+    }
+
+    .siDataCheckBoxField{
+        position: relative;
+        display: flex;
+        line-height: normal;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    
+    
+    .siDataCheckBoxLabel{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        color: crimson;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+
+    .siDataCheckBox{
+        margin-right: 0.5rem;
+        float: left;
+    }
+    
+    .siDataCheckBoxInput{
+        height: 0.8rem;
+        width: 20px;
+        color: black;
+    
+    }
+    
+    .siDataCheckBoxValue{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        color: black;
+        position: relative;
+        margin-left: 0.5rem;
+    }
+
+
+
+}

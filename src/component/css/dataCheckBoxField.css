@@ -1,0 +1,100 @@
+
+@media screen and (min-width: 400px) {
+    .dataCheckBoxField{
+        width: 60%;
+        position: relative;
+        border: 1px solid crimson;
+        border-radius: 0.5rem;
+        padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+        margin-bottom: 10px;
+    }
+    
+    
+    .dataCheckBoxLabel{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.6rem;
+        font-weight: bold;
+        color: crimson;
+        margin-bottom: 1px;
+    }
+    
+    
+    .dataCheckBox{
+        margin-bottom: 1px;
+        display: flex;
+    }
+    
+    .dataCheckBoxInput{
+        height: 0.6rem;
+        color: black;
+    
+    }
+    
+    .dataCheckBoxValue{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.6rem;
+        color: black;
+        position: relative;
+        margin-left: 0.4rem;
+    }
+    
+
+}
+  
+
+
+
+@media screen and (min-width: 800px) {
+    .dataCheckBoxField{
+        width: 60%;
+        position: relative;
+        border: 1px solid crimson;
+        border-radius: 1rem;
+        padding: 2rem 2rem 2rem 2rem;
+        margin-bottom: 20px;
+        
+    }
+    
+    
+    .dataCheckBoxLabel{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 1rem;
+        font-weight: bold;
+        color: crimson;
+        margin-bottom: 10px;
+    }
+    
+    
+    .dataCheckBox{
+        margin-bottom: 0.5rem;
+        display: flex;
+    }
+    
+    .dataCheckBoxInput{
+        height: 1rem;
+        color: black;
+    
+    }
+    
+    .dataCheckBoxValue{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 1rem;
+        color: black;
+        position: relative;
+        margin-left: 0.5rem;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
