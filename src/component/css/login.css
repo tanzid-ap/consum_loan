@@ -1,0 +1,133 @@
+@media screen and (min-width: 400px) {
+    .login{
+        width: 90%;
+        margin-left: 10%;
+        margin-right: 10%;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 100%;
+    }
+
+    .login_btn{
+        margin-top: 5%;
+        text-align: center;
+        align-self: center;
+        font-size: 0.7rem;
+        color: crimson;
+        height: 1.7rem;
+        width: 3.5rem;
+        border-radius: 2rem;
+        background-color: white;
+        border-color: crimson;
+        font-weight: bold;
+    }
+
+
+    .login_error_Text{
+        height: 1rem;
+        width: 100%;
+        background: 0 0;
+        font-size: 0.8rem;
+        color: crimson;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .login_text_input{
+        height: 1.2rem;
+        width: 100%;
+        background: 0 0;
+        font-size: 0.8rem;
+        color: #0c0c0c;
+        
+    }
+}
+
+
+@media screen and (min-width: 800px) {
+    .login{
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 60%;
+    }
+
+    .login_btn{
+        margin-top: 5%;
+        text-align: center;
+        align-self: center;
+        font-size: 1rem;
+        color: crimson;
+        height: 3rem;
+        width: 6rem;
+        border-radius: 2rem;
+        background-color: white;
+        border-color: crimson;
+        font-weight: bold;
+    }
+
+    .login_error_Text{
+        height: 1.2rem;
+        width: 100%;
+        background: 0 0;
+        font-size: 1rem;
+        color: crimson;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .login_text_input{
+        height: 1.5rem;
+        width: 100%;
+        background: 0 0;
+        font-size: 1rem;
+        color: #0c0c0c;
+        
+    }
+}
+
+
+
+.login-item{
+    width: 80%;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.login_label{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+.login_form{
+    margin: 0;
+    
+}
+
+.login_form_items{
+    display: grid;
+    margin-bottom: 5%;
+    padding: 2rem 1rem 2rem 1rem;
+    border: 1px solid crimson;
+    border-radius: 20px;
+    align-items: center;
+    justify-items: center;
+}
+
+.login_text_area{
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    width: 80%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+
+
+
+
+
+

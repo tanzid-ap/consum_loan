@@ -1,94 +1,91 @@
-import React, { Component } from 'react';
-import "./login.css";
+import React, { useState } from 'react';
+import "../css/login.css";
 
-class Signin extends Component {
+function Login(props){
 
-    constructor(props) {
-        super(props);
-        this.state = {
-          buetId: 'buetId',
-          dob: 'dob', 
+
+    const [buetId, setBuetId] = useState("");
+    const [dob, setDob] = useState("");
+    const [error_display,setError_Display] = useState([]);
+
+    function handleInputChange(event){
+        const name = event.target.name;
+        if (name === "buetId"){
+            setBuetId(event.target.value);
+        }
+        if (name === "dob"){
+            setDob(event.target.value);
         }
     }
 
-    setEmptyValue = (event) => {
-        const name = event.target.name
-        document.getElementById(name).value = "";
-      
-    }
-
-    handleInputChange = (event) => {
-        const target = event.target;
-        let value = event.target.value;
-        const name = target.name;
-    
-        this.setState({
-          [name]: value
-        });
-    }
-
-    handleSubmit = (e) => {
+    function authenticate(e){
         e.preventDefault();
-        this.setState({
-            buetId: 'buetId',
-            dob: 'dob',
-        });
-    }
-
-    authenticate = (e) => {
-        const bId = 423052016;
-        if (buetId === bId && dob === '01/01/2023') {
-          console.log("Success! Logged in.");
+        if (buetId === "0423052016" && dob === '2023-01-01') {
+            props.onAuthenticate(true);
         } else {
-          console.log("Invalid BUET ID and/or password");
+            const temp = [];
+            temp.push(
+                <div className="login_text_area">
+                    <div className='login_error_Text'>
+                        Invalid BUET ID and/or password <br/> Try Again!!!
+                    </div>
+                </div>
+            );
+            setError_Display(temp);
         }
-        this.handleSubmit(e);
+
+
     }
 
-    render() {
+    
     return (
         <div className="login">
-        <h4>Login</h4>
-        <form >
-            <div className="text_area">
-            <input
-                type="text"
-                id="buetId"
-                name="buetId"
-                placeholder="BUET ID"
-                className="text_input"
-                onChange={this.handleInputChange} 
-                onFocus={this.setEmptyValue}
+            <div className='login-item login_label' >Login</div>
+            <div className='login-item login_form'>
+                <form >
+                    <div className='login_form_items' >
+                        <div className="login_text_area">
+                            <input
+                                type="text"
+                                id="buetId"
+                                name="buetId"
+                                placeholder="BUET ID"
+                                className="login_text_input"
+                                onChange={handleInputChange} 
 
-            />
-            </div>
-            <div className="text_area">
-             
-            <input
-                type="text"
-                id="dob"
-                name="dob"
-                placeholder="DOB"
-                onFocus={(e) => (e.target.type = "date")}
-                className="text_input"
-                min="1900-01-01" max="2024-01-01"
-                onChange={this.handleInputChange} 
-                
-            />
-            </div>
+                            />
+                        </div>
+                        <div className="login_text_area">
+                        
+                            <input
+                                type="text"
+                                id="dob"
+                                name="dob"
+                                placeholder="DOB"
+                                onFocus={(e) => (e.target.type = "date")}
+                                className="login_text_input"
+                                min="1900-01-01" max="2025-01-01"
+                                onChange={handleInputChange} 
+                                
+                            />
+                        </div>
 
-            <input
-                type="submit"
-                value="LOGIN"
-                className="btn"
-                onClick={this.authenticate}
+                        <div className="login_text_area">
+                            <button className="login_btn" onClick={authenticate}>
+                                LOGIN
+                            </button>
+                        </div>
+
+                        {error_display}
+
+                        
+                    </div>
+                    
+                </form>
+            </div>
             
-            />
-        </form>
-        <a className="link" href="/signup">Sign Up</a>
         </div>
-    )
-    }
+    );
 }
 
-export default Signin;
+export default Login;

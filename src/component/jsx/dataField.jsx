@@ -8,15 +8,7 @@ function DataField(props){
 
 
     function clearBtnHandle(e){
-        e.preventDefault();
-
-        console.log(e);
-        // if (e.target.keyCode === 13){
-        //     console.log("Button is clicked");
-        // }else{
-        //     console.log("Button is not clicked");
-        // }
-            
+        e.preventDefault();            
         setDataFieldValue("");
     }
 

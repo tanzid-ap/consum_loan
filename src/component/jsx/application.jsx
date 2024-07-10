@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import "../css/application.css";
 import Logo from "./logo";
 
+
+
+import Login from './login';
 import BasicInfo from './basicInfo';
 import PersonalInfo from './personalInfo';
 import ServiceInfo from './serviceInfo';
@@ -14,24 +17,42 @@ import LastPageInfo from './lastPageInfo';
 
 function Application(){
 
-    const default_display = [];
+    const login_default_display = [];
 
-    default_display.push(
+    login_default_display.push(
         <div>
-            <div>
-                <BasicInfo/>
-            </div>
-
-            <div className='singleButton'>
-                <button className='normalButton' onClick={showPersonalInfo} >
-                    পরবর্তী
-                </button>
-            </div>
+            <Login onAuthenticate={(value) => {showLogin(value)}}/>
         </div>
-        
     );
 
-    const [display, setDisplay] = useState(default_display);
+    
+
+    const [display, setDisplay] = useState([]);
+
+    const [login_display,setLogin_display] = useState(login_default_display);
+
+    function showLogin(value){
+        if(value){
+            setLogin_display([]);
+            const temp = [];
+            temp.push(
+                <div>
+                    <div>
+                        <BasicInfo/>
+                    </div>
+        
+                    <div className='singleButton'>
+                        <button className='normalButton' onClick={showPersonalInfo} >
+                            পরবর্তী
+                        </button>
+                    </div>
+                </div>
+                
+            );
+            setDisplay(temp);
+
+        }
+    }
 
     function showPersonalInfo(e){
 
@@ -149,6 +170,9 @@ function Application(){
             <div>
                 <Logo/>
             </div>
+
+            {login_display}
+            
         
             <div>
                 <div>
@@ -156,6 +180,7 @@ function Application(){
                         <div>
 
                             {display}
+                           
 
 
                         </div>
