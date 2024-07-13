@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "../css/login.css";
+import emp_data from "../employee_file.json"
 
 function Login(props){
 
@@ -20,9 +21,20 @@ function Login(props){
 
     function authenticate(e){
         e.preventDefault();
-        if (buetId === "0423052016" && dob === '2023-01-01') {
-            props.onAuthenticate(true);
-        } else {
+
+        const emp_data_length = emp_data.length;
+
+        var data_found = false;
+
+        for(let i=0;i<emp_data_length;i++){
+            if (buetId === emp_data[i]["IDNO"] && dob === emp_data[i]["DATE_OF_BIRTH"]) {
+                data_found = true;
+                props.onAuthenticate(true, emp_data[i]);
+                break;
+            }
+        }
+
+        if(!data_found){
             const temp = [];
             temp.push(
                 <div className="login_text_area">
@@ -33,6 +45,8 @@ function Login(props){
             );
             setError_Display(temp);
         }
+
+        
 
 
     }

@@ -5,11 +5,11 @@ import DataField from "./dataField";
 import DataCheckBoxField from './dataCheckBoxField';
 
 
-function BasicInfo(){
+function BasicInfo(props){
 
     const [proPicFile, setProPicFile] = useState(imgfile);
 
-
+    var basic_data = props.basic_data;
     
 
     function handleChange(e) {
@@ -34,6 +34,7 @@ function BasicInfo(){
                     dataType="text"
                     validData="আপনার পূর্ণনাম লিখুন" 
                     label="১. আবেদনকারীর নাম* : " 
+                    value={basic_data["EMPLOYEE_NAME"]}
                     placeholder="যেমন: আবু হাশেম মোহাম্মদ"
                 />
 
@@ -42,6 +43,7 @@ function BasicInfo(){
                     dataType="text"
                     validData="আপনার পদবী লিখুন" 
                     label="২. পদবী* : " 
+                    value={basic_data["DESIGNATION"]}
                     placeholder="যেমন: প্রভাষক"
                 />
 
@@ -50,6 +52,7 @@ function BasicInfo(){
                     dataType="text"
                     validData="আপনার অফিস/বিভাগ লিখুন" 
                     label="৩. অফিস/বিভাগ* : " 
+                    value={basic_data["OFFICE"]}
                     placeholder="যেমন: রসায়ন"
                 />
 
@@ -58,6 +61,7 @@ function BasicInfo(){
                     dataType="text"
                     validData="আপনার সোনালী ব্যাংক, বুয়েট শাখায় পরিচালিত হিসাব নম্বর লিখুন" 
                     label="৪. সোনালী ব্যাংক, বুয়েট শাখায় পরিচালিত হিসাব নম্বর* : " 
+                    value={"44040"+basic_data["BANK_ACCOUNT_NO"]}
                     placeholder="যেমন: ৪৪০৪০********"
                 />
 
@@ -77,6 +81,7 @@ function BasicInfo(){
                     dataType="text"
                     validData="আবেদনকৃত ঋণের পরিমাণ লিখুন" 
                     label="৬. আবেদনকৃত ঋণের পরিমাণ* : " 
+                    value={""}
                     placeholder="যেমন: ১০০০০০"
                 />
 
@@ -86,6 +91,7 @@ function BasicInfo(){
                     dataType="text"
                     validData="আবেদনকৃত ঋণ গ্রহণের কারণ লিখুন" 
                     label="৭. আবেদনকৃত ঋণ গ্রহণের কারণ* : " 
+                    value={""}
                     placeholder="যেমন: ভোগ্যপণ্য"
                 />
 
@@ -101,66 +107,5 @@ function BasicInfo(){
 
 export default BasicInfo;
 
-
-
-
-/*
-
-
-const default_display = []
-
-    default_display.push(
-        <div>
-            <div>
-                <BasicInfo/>
-            </div>
-
-            <div className='singleButton'>
-                <button className='normalButton' onClick={basicInfoHandle} >
-                    পরবর্তী
-                </button>
-            </div>
-        </div>
-        
-    );
-
-    const [display, setDisplay] = useState(default_display)
-
-    function basicInfoHandle(){
-
-        
-        setDisplay(
-            
-
-        )
-    }
-
-
-
-    display = [];
-        display.push(
-            <div>
-                <div>
-                    <PersonalInfo/>
-                </div>
-    
-                <div className='doubleButton'>
-                    <button className='normalButton' >
-                        পূর্ববর্তী
-                    </button>
-                    <div className='buttonMargin'></div>
-                    <button className='normalButton' >
-                        পরবর্তী
-                    </button>
-                </div>
-            </div>
-        );
-        console.log("Button is clicked");
-
-
-
-
-
-*/
 
 

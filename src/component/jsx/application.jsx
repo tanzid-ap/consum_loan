@@ -18,10 +18,11 @@ import LastPageInfo from './lastPageInfo';
 function Application(){
 
     const login_default_display = [];
+    var empl_data = [];
 
     login_default_display.push(
         <div>
-            <Login onAuthenticate={(value) => {showLogin(value)}}/>
+            <Login onAuthenticate={(temp_value, temp_data) => {showLogin(temp_value, temp_data)}  }/>
         </div>
     );
 
@@ -31,14 +32,17 @@ function Application(){
 
     const [login_display,setLogin_display] = useState(login_default_display);
 
-    function showLogin(value){
+    function showLogin(value, e_data){
+
+        empl_data = e_data;
+    
         if(value){
             setLogin_display([]);
             const temp = [];
             temp.push(
                 <div>
                     <div>
-                        <BasicInfo/>
+                        <BasicInfo basic_data={empl_data}/>
                     </div>
         
                     <div className='singleButton'>
@@ -50,18 +54,41 @@ function Application(){
                 
             );
             setDisplay(temp);
-
         }
     }
 
-    function showPersonalInfo(e){
 
+    function showBasicInfo(e){
         e.preventDefault();
         const temp = [];
         temp.push(
             <div>
                 <div>
-                    <PersonalInfo/>
+                    <BasicInfo basic_data={empl_data}/>
+                </div>
+    
+                <div className='singleButton'>
+                    <button className='normalButton' onClick={showPersonalInfo} >
+                        পরবর্তী
+                    </button>
+                </div>
+            </div>
+            
+        );
+        setDisplay(temp);
+    }
+
+
+
+    function showPersonalInfo(e){
+
+        e.preventDefault();
+
+        const temp = [];
+        temp.push(
+            <div>
+                <div>
+                    <PersonalInfo personal_data={empl_data} />
                 </div>
     
                 <div className='doubleButton'>
@@ -79,10 +106,7 @@ function Application(){
         setDisplay(temp);
     }
 
-    function showBasicInfo(e){
-        e.preventDefault();
-        setDisplay(default_display);
-    }
+
 
     function showServiceSalaryInfo(e){
         e.preventDefault();
@@ -90,11 +114,11 @@ function Application(){
         temp.push(
             <div>
                 <div>
-                    <ServiceInfo/>
+                    <ServiceInfo service_data={empl_data} />
                 </div>
 
                 <div>
-                    <SalaryInfo/>
+                    <SalaryInfo salary_data={empl_data} />
                 </div>
     
                 <div className='doubleButton'>

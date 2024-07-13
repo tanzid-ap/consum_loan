@@ -4,7 +4,8 @@ import "../css/dataField.css";
 
 function DataField(props){
 
-    const [dataFieldValue, setDataFieldValue] = useState("");
+    // const [dataFieldValue, setDataFieldValue] = useState("");
+    const [dataFieldValue, setDataFieldValue] = useState(props.value);
 
 
     function clearBtnHandle(e){

@@ -3,10 +3,12 @@ import "../css/personalInfo.css";
 import PiDataField from './piDataField';
 
 
-function PersonalInfo(){
+function PersonalInfo(props){
 
-    const [presentAddressValue, setPresentAddressValue] = useState("");
-    const [permanantAddressValue, setPermanantAddressValue] = useState("");
+    var personal_data = props.personal_data;
+
+    const [presentAddressValue, setPresentAddressValue] = useState(personal_data["ADDRESS"]);
+    const [permanantAddressValue, setPermanantAddressValue] = useState(personal_data["ADDRESS"]);
 
     function presentAddressValueHandle(e){
         e.preventDefault();
@@ -32,6 +34,7 @@ function PersonalInfo(){
                     dataType="text"
                     validData="আপনার পিতা/স্বামীর নাম লিখুন" 
                     label="ক) পিতা/স্বামীর নাম : " 
+                    value={personal_data["FATHERS_NAME"]}
                     placeholder="যেমন: আবুল হাশেম"
                 />
 
@@ -40,6 +43,7 @@ function PersonalInfo(){
                     dataType="text"
                     validData="আপনার মাতার নাম লিখুন" 
                     label="খ) মাতার নাম : " 
+                    value={""}
                     placeholder="যেমন: আনোয়ারা বেগম"
                 />
 
@@ -48,6 +52,7 @@ function PersonalInfo(){
                     dataType="text"
                     validData="আপনার নমিনীর নাম লিখুন" 
                     label="গ) নমিনীর নাম : " 
+                    value={""}
                     placeholder="যেমন: তাহমিদ আহমেদ"
                 />
 
@@ -56,6 +61,7 @@ function PersonalInfo(){
                     dataType="text"
                     validData="আপনার সাথে নমিনীর সম্পর্ক লিখুন" 
                     label="ঘ) আপনার সাথে নমিনীর সম্পর্ক : " 
+                    value={""}
                     placeholder="যেমন: ছেলে"
                 />
 
@@ -99,6 +105,7 @@ function PersonalInfo(){
                     dataType="date"
                     validData="আপনার জন্ম তারিখ লিখুন" 
                     label="ছ) জন্ম তারিখ : " 
+                    value={personal_data["DATE_OF_BIRTH"]}
                     placeholder="যেমন: ৩০/০৮/১৯৮০"
                 />
 
@@ -108,6 +115,7 @@ function PersonalInfo(){
                     dataType="text"
                     validData="আপনার জাতীয় পরিচয়পত্র নম্বর লিখুন" 
                     label="জ) আবেদনকারীর জাতীয় পরিচয়পত্র নম্বর : " 
+                    value={personal_data["NID_NO"]}
                     placeholder="যেমন: ১২৩৪৫৬৭৮৯০"
                 />
 
@@ -118,6 +126,7 @@ function PersonalInfo(){
                     dataType="text"
                     validData="নমিনীর জাতীয় পরিচয়পত্র নম্বর লিখুন" 
                     label="ঝ) নমিনীর জাতীয় পরিচয়পত্র নম্বর : " 
+                    value={""}
                     placeholder="যেমন: ১৯৯৩৫৪৬৮৩৮৬৫২৩৪৫৭"
                 />
 

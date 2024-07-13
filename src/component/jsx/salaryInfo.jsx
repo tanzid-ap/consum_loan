@@ -1,7 +1,9 @@
 import React from 'react';
 import "../css/salaryInfo.css";
 
-function SalaryInfo(){
+function SalaryInfo(props){
+
+    var salary_data = props.salary_data;
 
     return(
         <div>

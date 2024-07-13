@@ -4,7 +4,7 @@ import "../css/piDataField.css";
 
 function PiDataField(props){
 
-    const [piDataFieldValue, setPiDataFieldValue] = useState("");
+    const [piDataFieldValue, setPiDataFieldValue] = useState(props.value);
 
     function clearPiBtnHandle(e){
         e.preventDefault();

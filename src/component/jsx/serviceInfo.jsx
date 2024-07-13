@@ -3,11 +3,17 @@ import "../css/serviceInfo.css";
 
 import PiDataField from './piDataField';
 
-function ServiceInfo(){
+function ServiceInfo(props){
 
+    var service_data = props.service_data;
 
-    const [servCheckBox, setServCheckBox] = useState([false, false]);
-    const default_servCheckBox = [false, false];
+    var serv_type = false;
+    if(service_data["APPOINTMENT_TYPE"] === "Permanent"){
+        serv_type = true;
+    }
+
+    const [servCheckBox, setServCheckBox] = useState([serv_type, !serv_type]);
+    const default_servCheckBox = [serv_type, !serv_type];
 
 
     function servCheckBoxHandle(e){
@@ -24,9 +30,6 @@ function ServiceInfo(){
     }
 
 
-
-
-
     return(
         <div>
             <div className="serviceInfo">
@@ -41,6 +44,7 @@ function ServiceInfo(){
                         dataType="text"
                         validData="আপনার বুয়েট আই.ডি. নং লিখুন" 
                         label="ক) বুয়েট আই.ডি. নং : " 
+                        value={service_data["IDNO"]}
                         placeholder="যেমন: T201614032"
                     
                     />
@@ -69,8 +73,9 @@ function ServiceInfo(){
                     <PiDataField
                         id="uniJoinDate" 
                         dataType="date"
-                        validData="আপনার বুয়েট আই.ডি. নং লিখুন" 
+                        validData="আপনার বিশ্ববিদ্যালয়ে যোগদানের তারিখ লিখুন" 
                         label="গ) বিশ্ববিদ্যালয়ে যোগদানের তারিখ : " 
+                        value={service_data["DATE_FIRST_JOIN"]}
                         placeholder="যেমন: ২৬/০৫/২০১০"
                     
                     />
@@ -81,6 +86,7 @@ function ServiceInfo(){
                         dataType="text"
                         validData="আপনি এই বিশ্ববিদ্যালয়ে মোট কতকাল চাকুরী করেছেন" 
                         label="ঘ) এই বিশ্ববিদ্যালয়ে মোট চাকুরীকাল : " 
+                        value={""}
                         placeholder="যেমন: ১১ বছর ৮ মাস ১৬ দিন"
                     
                     />

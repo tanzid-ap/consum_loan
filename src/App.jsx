@@ -6,7 +6,7 @@ import { Router, Route } from 'react-router';
 
 function App() {
 
-    const [pageName,setPageName] = useState("/");
+    
 
     return (
         <div>
