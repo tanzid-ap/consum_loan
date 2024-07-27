@@ -1,9 +1,58 @@
 import React from 'react';
 import "../css/salaryInfo.css";
 
+import salary_file from "../paySlip_file.json"
+
 function SalaryInfo(props){
 
     var salary_data = props.salary_data;
+
+    var mydate = new Date();
+    var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var prevMonthName = [];
+    var currYear = mydate.getFullYear();
+    var currMonth = mydate.getMonth();
+    const prevMonthSal = [];
+    const salText = ["ক) মূল বেতন : ","খ) মোট বেতন : ", "গ) মোট কর্তন : ", "ঘ) নীট বেতন : "];
+
+    const salData = [];
+    
+    for(let i=0;i<3;i++){
+        prevMonthName.push(month[currMonth-i-1] + ' ' + currYear);
+    }
+
+    for(let i=0;i<salary_file.length;i++){
+        for(let j=2;j>=0;j--){
+            if((salary_data["EMPLOYEEID"] === salary_file[i]["SAL_ID"]) && 
+            (salary_file[i]["YEAR"] === currYear.toString()) &&
+            (salary_file[i]["MONTH"] === (currMonth-j).toString())){
+                
+                prevMonthSal.push([salary_file[i]["BASIC_SALARY"], 
+                                    salary_file[i]["GROSS_SALARY"], 
+                                    salary_file[i]["TOTAL_DEDUCTION"], 
+                                    salary_file[i]["NET_SALARY"]]);
+
+
+            }
+        }
+        
+    }
+
+    for(let i=0;i<4;i++){
+        salData.push(
+            <tbody>
+                <tr>
+                    <td className='tableText'>{salText[i]}</td>
+                    <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' value={prevMonthSal[2][i]} name='prevMonth0BasicSalary' /></td>
+                    <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' value={prevMonthSal[1][i]} name='prevMonth1BasicSalary' /></td>
+                    <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' value={prevMonthSal[0][i]} name='prevMonth2BasicSalary' /></td>
+                </tr>
+            </tbody>
+        );
+    }
+    
+
+    
 
     return(
         <div>
@@ -16,47 +65,14 @@ function SalaryInfo(props){
                         <thead>
                             <tr className='tableHead'>
                                 <th className='tableText'>মাস</th>
-                                <th><input className='tableDataInput' type='text' placeholder='বিগত মাস' name='prevMonth0' onFocus={(e) => (e.target.type = "month")} /></th>
-                                <th><input className='tableDataInput' type='text' placeholder='বিগত মাসের ১ মাস আগে' name='prevMonth1' onFocus={(e) => (e.target.type = "month")}/></th>
-                                <th><input className='tableDataInput' type='text' placeholder='বিগত মাসের ২ মাস আগে' name='prevMonth2' onFocus={(e) => (e.target.type = "month")} /></th>
+                                
+                                <th><input className='tableDataInput' type='text' value={prevMonthName[0]} placeholder='বিগত মাস' name='prevMonth0' /></th>
+                                <th><input className='tableDataInput' type='text' value={prevMonthName[1]} placeholder='বিগত মাসের ১ মাস আগে' name='prevMonth1' /></th>
+                                <th><input className='tableDataInput' type='text' value={prevMonthName[2]} placeholder='বিগত মাসের ২ মাস আগে' name='prevMonth2' /></th>
                             </tr>
                         </thead>
 
-                        <tbody>
-                            <tr>
-                                <td className='tableText'>ক) মূল বেতন : </td>
-                                <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' name='prevMonth0BasicSalary' /></td>
-                                <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' name='prevMonth1BasicSalary' /></td>
-                                <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' name='prevMonth2BasicSalary' /></td>
-                            </tr>
-                        </tbody>
-                        
-                        <tbody>
-                            <tr>
-                                <td className='tableText'>খ) মোট বেতন : </td>
-                                <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' name='prevMonth0TotalSalary' /></td>
-                                <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' name='prevMonth1TotalSalary' /></td>
-                                <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' name='prevMonth2TotalSalary' /></td>
-                            </tr>
-                        </tbody>
-                        
-                        <tbody>
-                            <tr>
-                                <td className='tableText'>গ) মোট কর্তন : </td>
-                                <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' name='prevMonth0TotalDeduct' /></td>
-                                <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' name='prevMonth1TotalDeduct' /></td>
-                                <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' name='prevMonth2TotalDeduct' /></td>
-                            </tr>
-                        </tbody>
-
-                        <tfoot>
-                            <tr>
-                                <td className='tableText'>ঘ) নীট বেতন : </td>
-                                <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' name='prevMonth0CalcSalary' /></td>
-                                <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' name='prevMonth1CalcSalary' /></td>
-                                <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' name='prevMonth2CalcSalary' /></td>
-                            </tr>
-                        </tfoot>
+                        {salData}
 
                     </table>
                 </div>

@@ -1,0 +1,228 @@
+
+
+
+
+@media screen and (min-width: 350px) {
+
+
+    .pageLabel{
+        text-align: center;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+
+    .allField{
+    
+        display: grid;
+        grid-template-columns: 90%;
+        justify-content: center;
+        align-items: center;
+        padding: 0.25rem 0.25rem 0.25rem 0.25rem;
+    }
+
+    .prePersInfo{
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    }
+
+    .tableIndexCol{
+        width: 6%;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.5rem;
+        font-weight: bold;
+        border: 1px solid black;
+    }
+
+    .tableLabelCol{
+        width: 20%;
+        font-family: 'AdorshoLipi',sans-serif, Arial  !important;
+        font-size: 0.5rem;
+        font-weight: bold;
+        text-align: left;
+        padding-left: 0.25rem;
+        border: 1px solid black;
+    }
+    
+    .tableValueCol{
+        font-family: 'AdorshoLipi', sans-serif, Arial  !important;
+        font-size: 0.5rem;
+        text-align: left;
+        padding-left: 0.5rem;
+        border: 1px solid black;
+    
+    }
+
+    .preAppProPic{
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        text-align: center;
+    }
+
+
+    .preAppSignPic{
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        text-align: right;
+    }
+
+    .preAppProImg{
+        height: 60px;
+        width: 60px;
+        text-align: center;
+        border: 3px dashed crimson;
+        padding: 0.5rem;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .preAppSignImg{
+        height: 25px;
+        width: 80px;
+        text-align: center;
+        border: 3px dashed crimson;
+        padding: 0.5rem;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .preSingleButton{
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        text-align: center;
+    }
+
+    .preNormalButton{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.7rem;
+        color: crimson;
+        height: 1.5rem;
+        width: 3.5rem;
+        border-radius: 2rem;
+        background-color: white;
+        border-color: crimson;
+
+    }
+
+    
+    
+
+}
+
+
+@media screen and (min-width: 800px) {
+
+
+
+    .pageLabel{
+        text-align: center;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+
+    .allField{
+    
+        display: grid;
+        grid-template-columns: 70%;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 1rem 1rem 1rem;
+    }
+
+    .prePersInfo{
+        padding: 0.5rem 1rem 0.5rem 1rem;
+    }
+
+    .tableIndexCol{
+        width: 5%;
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        font-weight: bold;
+        border: 1px solid black;
+    }
+
+    .tableLabelCol{
+        width: 20%;
+        font-family: 'AdorshoLipi',sans-serif, Arial  !important;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-align: left;
+        padding-left: 0.5rem;
+        border: 1px solid black;
+    }
+    
+    .tableValueCol{
+        font-family: 'AdorshoLipi', sans-serif, Arial  !important;
+        font-size: 0.8rem;
+        text-align: left;
+        padding-left: 1rem;
+        border: 1px solid black;
+    
+    }
+
+
+    .preAppProPic{
+        padding: 1rem 1rem 1rem 1rem;
+        text-align: center;
+    }
+
+
+    .preAppSignPic{
+        padding: 1rem 1rem 1rem 1rem;
+        text-align: right;
+    }
+
+    .preAppProImg{
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        border: 3px dashed crimson;
+        position: relative;
+        cursor: pointer;
+    }
+
+
+    .preAppSignImg{
+        height: 40px;
+        width: 150px;
+        text-align: center;
+        border: 3px dashed crimson;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .preSingleButton{
+        padding: 1rem 1rem 1rem 1rem;
+        text-align: center;
+    }
+
+    .preNormalButton{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 1rem;
+        color: crimson;
+        height: 2.5rem;
+        width: 7rem;
+        border-radius: 2rem;
+        background-color: white;
+        border-color: crimson;
+
+    }
+
+
+
+}
+
+
+
+
+.previewApp{
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+

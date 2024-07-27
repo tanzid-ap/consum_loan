@@ -8,33 +8,51 @@ import './index.css'
 
 
 
-const data = createBrowserRouter([
+const router = createBrowserRouter([
     {
         path: "/",
         element: <App  />,
-        errorElement: <ErrorPage />
+        errorElement: <ErrorPage />,
+        // children: [
+        //     {
+        //         path: '/home',
+        //         element: <Outlet />,
+        //         children: [
+        //             {   
+        //                 index: true,
+        //                 element: <Home />
+        //             },
+        //             {
+        //                 path: '/home/minis',
+        //                 element: <Minis/>
+        //             }
+        //         ]
+        //     },
+        //     {
+        //         path: '/projects',
+        //         element: <Projects />,
+        //         errorElement: <ErrorPage />,
+        //     },
+        //     {
+        //         path: '/certificates',
+        //         element: <Certificates />,
+        //     },
+        //     {
+        //         path: '/skills',
+        //         element: <Skills />,
+        //     },
+        //     {
+        //         path: '/contact',
+        //         element: <Contact />,
+        //     },
+        // ],
     },
 ]);
 
-function router(){
-
-    const data = createBrowserRouter([
-        {
-            path: "/",
-            element: <App  />,
-            errorElement: <ErrorPage />
-        },
-    ]);
-
-    return(
-        data
-    );
-    
-}
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
-        <RouterProvider router={data} />
+        <RouterProvider router={router} />
     </React.StrictMode>,
 )

@@ -5,6 +5,8 @@ import emp_data from "../employee_file.json"
 function Login(props){
 
 
+    const [err_text_color, setErr_text_color] = useState(true);
+
     const [buetId, setBuetId] = useState("");
     const [dob, setDob] = useState("");
     const [error_display,setError_Display] = useState([]);
@@ -34,11 +36,18 @@ function Login(props){
             }
         }
 
+
+
         if(!data_found){
+            setErr_text_color(!err_text_color);
+            var e_t_c = "red";
+            if(err_text_color) e_t_c = "black";
+            else e_t_c = "red";
+
             const temp = [];
             temp.push(
                 <div className="login_text_area">
-                    <div className='login_error_Text'>
+                    <div className='login_error_Text' style={{ color: e_t_c }}>
                         Invalid BUET ID and/or password <br/> Try Again!!!
                     </div>
                 </div>

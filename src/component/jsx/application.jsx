@@ -3,7 +3,6 @@ import "../css/application.css";
 import Logo from "./logo";
 
 
-
 import Login from './login';
 import BasicInfo from './basicInfo';
 import PersonalInfo from './personalInfo';
@@ -11,7 +10,7 @@ import ServiceInfo from './serviceInfo';
 import SalaryInfo from './salaryInfo';
 import LoanInfo from './loanInfo';
 import LastPageInfo from './lastPageInfo';
-
+import PreviewApplication from './previewApplication';
 
 
 
@@ -143,7 +142,7 @@ function Application(){
         temp.push(
             <div>
                 <div>
-                    <LoanInfo/>
+                    <LoanInfo loan_data={empl_data} />
                 </div>
     
                 <div className='doubleButton'>
@@ -178,7 +177,7 @@ function Application(){
                     </button>
                     <div className='buttonMargin'></div>
                     <button className='normalButton' onClick={showBasicInfo} >
-                        জমা দিন
+                        পূর্বরুপ
                     </button>
                 </div>
             </div>
@@ -195,7 +194,11 @@ function Application(){
                 <Logo/>
             </div>
 
-            {login_display}
+            <div>
+                <PreviewApplication />
+            </div>
+
+            {/* {login_display} */}
             
         
             <div>

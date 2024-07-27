@@ -15,6 +15,56 @@ function ServiceInfo(props){
     const [servCheckBox, setServCheckBox] = useState([serv_type, !serv_type]);
     const default_servCheckBox = [serv_type, !serv_type];
 
+    const now = new Date();
+    const first_join_date = new Date(service_data["DATE_FIRST_JOIN"]);
+
+    var currentYear = now.getFullYear();
+    var currentMonth = now.getMonth();
+    var currentDate = now.getDate();
+
+    var first_join_dateYear = first_join_date.getFullYear();
+    var first_join_dateMonth = first_join_date.getMonth();
+    var first_join_dateDate = first_join_date.getDate();
+
+    var yearDuration = currentYear - first_join_dateYear;
+	var monthDuration = 0;
+    var dateDuration = 0;
+
+    if(currentMonth >= first_join_dateMonth)
+        monthDuration = currentMonth - first_join_dateMonth;
+    else{
+        yearDuration--;
+        monthDuration = 12 + currentMonth - first_join_dateMonth;
+    }
+
+    if(currentDate >= first_join_dateDate)
+        dateDuration = currentDate - first_join_dateDate;
+    else{
+        monthDuration--;
+        dateDuration = 31 + currentDate - first_join_dateDate;
+        if(monthDuration < 0){
+            monthDuration = 11;
+            yearDuration--;
+        }
+    }
+
+
+    var birth_date = new Date(service_data["DATE_OF_BIRTH"]);
+
+    var dobYear = birth_date.getFullYear();
+
+    if(service_data["TEACHERORNOT"]=="1"){
+        dobYear += 65; 
+    }else{
+        dobYear += 60; 
+    }
+
+    birth_date.setFullYear(dobYear);
+    var date_of_birth = birth_date.toLocaleDateString().split("/").reverse().join("-");
+
+
+
+
 
     function servCheckBoxHandle(e){
         const {name} = e.target;
@@ -52,7 +102,7 @@ function ServiceInfo(props){
                     <div>
                         <div className="siDataCheckBoxField" data-validate="">
                             <div className="siDataCheckBoxLabel">
-                            খ) বিশ্ববিদ্যালয়ের চাকুরী : 
+                                খ) বিশ্ববিদ্যালয়ের চাকুরী : 
                             </div>
 
 
@@ -72,7 +122,7 @@ function ServiceInfo(props){
 
                     <PiDataField
                         id="uniJoinDate" 
-                        dataType="date"
+                        dataType="text"
                         validData="আপনার বিশ্ববিদ্যালয়ে যোগদানের তারিখ লিখুন" 
                         label="গ) বিশ্ববিদ্যালয়ে যোগদানের তারিখ : " 
                         value={service_data["DATE_FIRST_JOIN"]}
@@ -86,16 +136,17 @@ function ServiceInfo(props){
                         dataType="text"
                         validData="আপনি এই বিশ্ববিদ্যালয়ে মোট কতকাল চাকুরী করেছেন" 
                         label="ঘ) এই বিশ্ববিদ্যালয়ে মোট চাকুরীকাল : " 
-                        value={""}
+                        value={yearDuration+" বছর, "+monthDuration+" মাস, "+dateDuration+" দিন"}
                         placeholder="যেমন: ১১ বছর ৮ মাস ১৬ দিন"
                     
                     />
 
                     <PiDataField
                         id="uniRetiredDate" 
-                        dataType="Date"
+                        dataType="text"
                         validData=" " 
                         label="ঙ) চাকুরীর বয়স পূর্তির তারিখ (শিক্ষকের বয়স ৬৫ বছর, কর্মকর্তা/কর্মচারীর বয়স ৬০ বছর): " 
+                        value={date_of_birth}
                         placeholder="যেমন: ৩০/০৭/২০৫১"
                     
                     />
