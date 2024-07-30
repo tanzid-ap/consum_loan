@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "../css/login.css";
 import emp_data from "../employee_file.json"
+import Logo from '../jsx_component/logo';
 
 function Login(props){
 
@@ -62,52 +63,62 @@ function Login(props){
 
     
     return (
-        <div className="login">
-            <div className='login-item login_label' >Login</div>
-            <div className='login-item login_form'>
-                <form >
-                    <div className='login_form_items' >
-                        <div className="login_text_area">
-                            <input
-                                type="text"
-                                id="buetId"
-                                name="buetId"
-                                placeholder="BUET ID"
-                                className="login_text_input"
-                                onChange={handleInputChange} 
+        <div className='login_body'>
+            <div className="login_logo">
+                <Logo />
+            </div>
+            <div>
+                <div className="login">
+                    <div className='login_label' >Login</div>
+                    <div className='login_form'>
+                        <form >
+                            <div className='login_form_items' >
+                                <div className="login_text_area">
+                                    <input
+                                        type="text"
+                                        id="buetId"
+                                        name="buetId"
+                                        placeholder="BUET ID"
+                                        className="login_text_input"
+                                        onChange={handleInputChange} 
 
-                            />
-                        </div>
-                        <div className="login_text_area">
-                        
-                            <input
-                                type="text"
-                                id="dob"
-                                name="dob"
-                                placeholder="DOB"
-                                onFocus={(e) => (e.target.type = "date")}
-                                className="login_text_input"
-                                min="1900-01-01" max="2025-01-01"
-                                onChange={handleInputChange} 
+                                    />
+                                </div>
+                                <div className="login_text_area">
                                 
-                            />
-                        </div>
+                                    <input
+                                        type="text"
+                                        id="dob"
+                                        name="dob"
+                                        placeholder="DOB"
+                                        onFocus={(e) => (e.target.type = "date")}
+                                        className="login_text_input"
+                                        min="1900-01-01" max="2025-01-01"
+                                        onChange={handleInputChange} 
+                                        
+                                    />
+                                </div>
 
-                        <div className="login_text_area">
-                            <button className="login_btn" onClick={authenticate}>
-                                LOGIN
-                            </button>
-                        </div>
+                                <div className="login_text_area">
+                                    <button className="login_btn" onClick={authenticate}>
+                                        LOGIN
+                                    </button>
+                                </div>
 
-                        {error_display}
+                                {error_display}
 
-                        
+                                
+                            </div>
+                            
+                        </form>
                     </div>
                     
-                </form>
+                </div>
             </div>
             
+
         </div>
+        
     );
 }
 

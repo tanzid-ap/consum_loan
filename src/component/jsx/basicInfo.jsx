@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import "../css/basicInfo.css";
 import imgfile from "../assets/uploadImg.png"
-import DataField from "./dataField";
-import DataCheckBoxField from './dataCheckBoxField';
+import DataField from "../jsx_component/dataField";
+import DataCheckBoxField from '../jsx_component/dataCheckBoxField';
+import Logo from '../jsx_component/logo';
 
 
 function BasicInfo(props){
@@ -10,16 +11,44 @@ function BasicInfo(props){
     const [proPicFile, setProPicFile] = useState(imgfile);
 
     var basic_data = props.basic_data;
+
     
 
     function handleChange(e) {
         setProPicFile(URL.createObjectURL(e.target.files[0]));
     }
 
+    // function handleInputChange(event){
+    //     const name = event.target.name;
+    //     if (name === "buetId"){
+    //         setBuetId(event.target.value);
+    //     }
+    //     if (name === "dob"){
+    //         setDob(event.target.value);
+    //     }
+    // }
+
+
+    function validBasicInfo(){
+
+
+        return true;
+    }
+
+
+    function onBasicAuthenticate(e){
+        e.preventDefault();
+
+        props.onBasicValidate(validBasicInfo());
+
+    }
+
     return(
         <div>
-            <div>
-                <div className="basicField">
+            <div className="basic_logo">
+                <Logo />
+            </div>
+            <div className="basicField">
 
                 <div className='profilePicture'>
                     <div className='profileImg'>
@@ -74,6 +103,7 @@ function BasicInfo(props){
                         "সোনালী ব্যাংকের গৃহ ক্রয়/গৃহ নির্মাণ/মেরামত/জমি ক্রয় ঋণ",
                         "সোনালী ব্যাংকের পারসোনাল/অন্যান্য (Any Purpose) ঋণ"
                     ]}
+                    
                 />
 
                 <DataField 
@@ -95,9 +125,16 @@ function BasicInfo(props){
                     placeholder="যেমন: ভোগ্যপণ্য"
                 />
 
-            </div>
+                <div className='bisingleButton'>
+                    <button className='binormalButton' onClick={onBasicAuthenticate}>
+                        পরবর্তী
+                    </button>
+                </div>
+
+
 
             </div>
+
             
         </div>
     )

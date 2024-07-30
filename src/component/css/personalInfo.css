@@ -1,15 +1,15 @@
-@media screen and (min-width: 400px) {
-
+@media screen and (max-width: 800px) {
 
     .personalInfo{
-        width: 60%;
+        width: 80%;
         position: relative;
         border: 1px solid crimson;
         border-radius: 1rem;
         padding: 1rem 1rem 1rem 1rem;
         margin-top: 5%;
-        margin-bottom: 20px;
-        margin-left: 15%;
+        margin-bottom: 2%;
+        display: grid;
+        grid-template-columns: 100%;
     }
 
 
@@ -18,7 +18,7 @@
         font-size: 0.7rem;
         font-weight: bold;
         color: crimson;
-        margin-bottom: 10px;
+        margin-bottom: 2%;
         text-align: center;
     }
 
@@ -27,6 +27,7 @@
 
 @media screen and (min-width: 800px) {
 
+
     .personalInfo{
         width: 70%;
         position: relative;
@@ -34,8 +35,9 @@
         border-radius: 1rem;
         padding: 1rem 2rem 1rem 2rem;
         margin-top: 2%;
-        margin-bottom: 20px;
-        margin-left: 15%;
+        margin-bottom: 2%;
+        display: grid;
+        grid-template-columns: 100%;
     }
 
 
@@ -45,6 +47,7 @@
         font-weight: bold;
         color: crimson;
         text-align: center;
+        margin-bottom: 2%;
     }
 
 
@@ -52,3 +55,14 @@
 }
 
 
+
+.perInfo{
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+}
+
+.personal_logo{
+    display: grid;
+    grid-template-columns: 100%;
+}

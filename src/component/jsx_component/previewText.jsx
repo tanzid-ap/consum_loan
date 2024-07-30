@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/previewText.css";
+import "../css_component/previewText.css";
 
 
 function PreviewText(props){

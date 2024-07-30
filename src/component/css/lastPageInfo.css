@@ -1,17 +1,15 @@
 
 
-@media screen and (min-width: 400px) {
+@media screen and (max-width: 800px) {
 
 
     .lastPageInfo{
-        width: 75%;
-        position: relative;
+        width: 80%;
         border: 1px solid crimson;
         border-radius: 1rem;
-        padding: 1rem 1rem 1rem 1rem;
-        margin-top: 5%;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        margin-top: 2%;
         margin-bottom: 2%;
-        margin-left: 7%;
     }
 
 
@@ -21,7 +19,7 @@
         font-size: 0.7rem;
         font-weight: bold;
         color: crimson;
-        margin-bottom: 10px;
+        margin-bottom: 2%;
         text-align: center;
     }
 
@@ -46,7 +44,8 @@
 
     .commitText{
         width: 100%;
-        margin-bottom: 1%;
+        margin-top: 2%;
+        margin-bottom: 2%;
     }
 
     .commitRealText{
@@ -60,9 +59,9 @@
     }
 
     .signature{
-        margin-left: 40%;
+        width: 90%;
         margin-bottom: 1%;
-        padding: 1rem;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     }
 
     .signPic{
@@ -70,9 +69,10 @@
         height: 80px;
         text-align: center;
         border: 3px dashed crimson;
-        padding: 0.5rem;
-        position: relative;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
         cursor: pointer;
+        float: right;
+
     }
 
     .signImg{
@@ -147,33 +147,15 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media screen and (min-width: 800px) {
 
     .lastPageInfo{
-        width: 55%;
-        position: relative;
+        width: 70%;
         border: 1px solid crimson;
         border-radius: 1rem;
         padding: 1rem 1rem 1rem 1rem;
         margin-top: 2%;
         margin-bottom: 2%;
-        margin-left: 20%;
         
     }
 
@@ -183,6 +165,7 @@
         font-weight: bold;
         color: crimson;
         text-align: center;
+        margin-bottom: 2%;
     }
 
     .tableText{
@@ -206,7 +189,8 @@
 
     .commitText{
         width: 100%;
-        margin-bottom: 1%;
+        margin-top: 2%;
+        margin-bottom: 2%;
     }
 
     .commitRealText{
@@ -221,9 +205,9 @@
 
 
     .signature{
-        margin-left: 70%;
+        width: 80%;
         margin-bottom: 1%;
-        padding: 1rem;
+        padding: 1rem 1rem 1rem 1rem;
     }
 
     .signPic{
@@ -231,9 +215,11 @@
         height: 100px;
         text-align: center;
         border: 3px dashed crimson;
-        padding: 0.5rem;
-        position: relative;
+        padding: 1rem 1rem 1rem 1rem;
         cursor: pointer;
+        position: relative;
+        float: right;
+
     }
 
     .signImg{
@@ -303,7 +289,19 @@
         
     }
     
+}
 
 
+.lastPage{
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+}
 
+
+.loan_logo{
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+    align-items: center;
 }

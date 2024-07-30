@@ -1,13 +1,16 @@
 import React, {useState} from 'react';
 import "../css/application.css";
-import Logo from "./logo";
+import Logo from "../jsx_component/logo";
+
+import emp_data from "../employee_file.json"
+
+import DoubleButton from '../jsx_component/doubleButton';
 
 
 import Login from './login';
 import BasicInfo from './basicInfo';
 import PersonalInfo from './personalInfo';
-import ServiceInfo from './serviceInfo';
-import SalaryInfo from './salaryInfo';
+import SalServInfo from './salServInfo';
 import LoanInfo from './loanInfo';
 import LastPageInfo from './lastPageInfo';
 import PreviewApplication from './previewApplication';
@@ -16,13 +19,14 @@ import PreviewApplication from './previewApplication';
 
 function Application(){
 
-    const login_default_display = [];
+    var alldata = {};
     var empl_data = [];
 
+    const login_default_display = [];
+    
     login_default_display.push(
-        <div>
-            <Login onAuthenticate={(temp_value, temp_data) => {showLogin(temp_value, temp_data)}  }/>
-        </div>
+        <Login onAuthenticate={(temp_value, temp_data) => {afterLogin(temp_value, temp_data);}  }/>
+
     );
 
     
@@ -31,201 +35,153 @@ function Application(){
 
     const [login_display,setLogin_display] = useState(login_default_display);
 
-    function showLogin(value, e_data){
+    const [preview_display,setPreview_display] = useState([]);
+
+
+    function showLoginDisplay(val){
+        if(val){
+            setPreview_display([]);
+            setLogin_display(login_default_display);
+        }
+        
+    }
+
+    function afterLogin(value, e_data){
 
         empl_data = e_data;
     
         if(value){
             setLogin_display([]);
+            showBasicInfo(value);
+        }
+    }
+
+
+    function showBasicInfo(val){
+        if(val){
             const temp = [];
             temp.push(
-                <div>
-                    <div>
-                        <BasicInfo basic_data={empl_data}/>
-                    </div>
-        
-                    <div className='singleButton'>
-                        <button className='normalButton' onClick={showPersonalInfo} >
-                            পরবর্তী
-                        </button>
-                    </div>
-                </div>
+                <BasicInfo 
+                    basic_data={empl_data}
+                    onBasicValidate={ (valNext) => {showPersonalInfo(valNext);} }
+                />
                 
             );
+            setPreview_display([])
             setDisplay(temp);
         }
     }
 
 
-    function showBasicInfo(e){
-        e.preventDefault();
-        const temp = [];
-        temp.push(
-            <div>
-                <div>
-                    <BasicInfo basic_data={empl_data}/>
-                </div>
-    
-                <div className='singleButton'>
-                    <button className='normalButton' onClick={showPersonalInfo} >
-                        পরবর্তী
-                    </button>
-                </div>
-            </div>
-            
-        );
-        setDisplay(temp);
+
+    function showPersonalInfo(val){
+        if(val){
+            const temp = [];
+            temp.push(
+                <PersonalInfo 
+                    personal_data={empl_data} 
+                    onPersonalValidate={ (valPrev, valNext) => 
+                        {showBasicInfo(valPrev); 
+                        showServiceSalaryInfo(valNext);} }
+                />
+            );
+
+            setDisplay(temp);
+        }
+
     }
 
 
 
-    function showPersonalInfo(e){
+    function showServiceSalaryInfo(val){
+        if(val){
+            const temp = [];
+            temp.push(
+                <SalServInfo 
+                    salServ_data={empl_data} 
+                    onServSalValidate={ (valPrev, valNext) => 
+                        {showPersonalInfo(valPrev); 
+                        showLoanInfo(valNext);} }
+                />
+            );
 
-        e.preventDefault();
+            setDisplay(temp);
+        }
 
-        const temp = [];
-        temp.push(
-            <div>
-                <div>
-                    <PersonalInfo personal_data={empl_data} />
-                </div>
-    
-                <div className='doubleButton'>
-                    <button className='normalButton' onClick={showBasicInfo} >
-                        পূর্ববর্তী
-                    </button>
-                    <div className='buttonMargin'></div>
-                    <button className='normalButton' onClick={showServiceSalaryInfo} >
-                        পরবর্তী
-                    </button>
-                </div>
-            </div>
-        );
+        
+    }
 
-        setDisplay(temp);
+
+    function showLoanInfo(val){
+        if(val){
+            const temp = [];
+            temp.push(
+                <LoanInfo 
+                    loan_data={empl_data}
+                    onLoanValidate={ (valPrev, valNext) => 
+                        {showServiceSalaryInfo(valPrev); 
+                        showLastPageInfo(valNext);} }
+
+                />
+            );
+
+            setDisplay(temp);
+        }
+        
     }
 
 
 
-    function showServiceSalaryInfo(e){
-        e.preventDefault();
-        const temp = [];
-        temp.push(
-            <div>
-                <div>
-                    <ServiceInfo service_data={empl_data} />
-                </div>
+    function showLastPageInfo(val){
+        if(val){
+            const temp = [];
+            temp.push(
+                <LastPageInfo
+                    onLastValidate={ (valPrev, valNext) => 
+                        {showLoanInfo(valPrev); 
+                        showPreview(valNext);} }
 
-                <div>
-                    <SalaryInfo salary_data={empl_data} />
-                </div>
-    
-                <div className='doubleButton'>
-                    <button className='normalButton' onClick={showPersonalInfo} >
-                        পূর্ববর্তী
-                    </button>
-                    <div className='buttonMargin'></div>
-                    <button className='normalButton' onClick={showLoanInfo} >
-                        পরবর্তী
-                    </button>
-                </div>
-            </div>
-        );
+                /> 
+            );
 
-        setDisplay(temp);
+            setDisplay(temp);
+        }
+        
     }
 
 
-    function showLoanInfo(e){
-        e.preventDefault();
-        const temp = [];
-        temp.push(
-            <div>
-                <div>
-                    <LoanInfo loan_data={empl_data} />
-                </div>
-    
-                <div className='doubleButton'>
-                    <button className='normalButton' onClick={showServiceSalaryInfo} >
-                        পূর্ববর্তী
-                    </button>
-                    <div className='buttonMargin'></div>
-                    <button className='normalButton' onClick={showLastPageInfo} >
-                        পরবর্তী
-                    </button>
-                </div>
-            </div>
-        );
+    function showPreview(val){
+        if(val){
+            const temp = [];
+            temp.push(
+                    <PreviewApplication
+                        onEdit={ (valPrev, valNext) => 
+                            {showBasicInfo(valPrev); 
+                            showLoginDisplay(valNext);} }
+                    />
+            );
 
-        setDisplay(temp);
+            setDisplay([]);
+            setPreview_display(temp);
+        }
+        
     }
 
 
 
-    function showLastPageInfo(e){
-        e.preventDefault();
-        const temp = [];
-        temp.push(
-            <div>
-                <div>
-                    <LastPageInfo/>
-                </div>
-    
-                <div className='doubleButton'>
-                    <button className='normalButton' onClick={showLoanInfo} >
-                        পূর্ববর্তী
-                    </button>
-                    <div className='buttonMargin'></div>
-                    <button className='normalButton' onClick={showBasicInfo} >
-                        পূর্বরুপ
-                    </button>
-                </div>
-            </div>
-        );
-
-        setDisplay(temp);
-    }
 
     
 
     return(
         <div className="body">
-            <div>
-                <Logo/>
-            </div>
 
-            <div>
-                <PreviewApplication />
-            </div>
+            {login_display}
 
-            {/* {login_display} */}
-            
-        
-            <div>
-                <div>
-                    <form>
-                        <div>
+            <form>
+                {display}
+            </form>
 
-                            {display}
-                           
-
-
-                        </div>
-
-                    </form>
-
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
+            {preview_display}
 
         </div>
     );

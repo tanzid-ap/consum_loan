@@ -1,4 +1,4 @@
-@media screen and (min-width: 350px) {
+@media screen and (max-width: 800px) {
 
     .previewData{
         display: flex;
@@ -11,6 +11,7 @@
         font-size: 0.7rem;
         font-weight: bold;
         text-align: justify;
+        width: 50%;
     }
     
     .previewColon{
@@ -25,6 +26,7 @@
         width:auto;
         font-family: 'AdorshoLipi', sans-serif, Arial !important;
         font-size: 0.7rem;
+        width: 50%;
     }
 }
 
@@ -40,14 +42,15 @@
 
     .previewDataLabel{
         font-family: 'AdorshoLipi', sans-serif, Arial !important;
-        font-size: 1rem;
+        font-size: 1.2rem;
         font-weight: bold;
         text-align: justify;
+        width:60%;
     }
     
     .previewColon{
         font-family: 'AdorshoLipi', sans-serif, Arial !important;
-        font-size: 1rem;
+        font-size: 1.2rem;
         font-weight: bold;
         padding-right: 1rem;
         padding-left: 1rem;
@@ -56,7 +59,8 @@
     .previewDataValue{
         width:auto;
         font-family: 'AdorshoLipi', sans-serif, Arial !important;
-        font-size: 1rem;
+        font-size: 1.2rem;
+        width:40%;
     }
 }
 

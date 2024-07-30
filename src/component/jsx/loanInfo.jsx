@@ -1,5 +1,7 @@
 import React from 'react';
 import "../css/loanInfo.css";
+import Logo from '../jsx_component/logo';
+import DoubleButton from '../jsx_component/doubleButton';
 
 import loan_file from "../employee_loan_file.json"
 
@@ -83,35 +85,67 @@ function LoanInfo(props){
     }
 
 
+    function validLoanInfo(){
+
+
+        return true;
+    }
+
+    function onLoanAuthenticate(button){
+
+        if(button == "first")
+            props.onLoanValidate(true, false);
+
+        if(button == "second"){
+            props.onLoanValidate(false, validLoanInfo());
+        }
+
+    }
+
+
     return(
         <div>
-            <div className="loanInfo">
-                <div className="loanInfoLabel">
-                    ১১. বিশ্ববিদ্যালয় ও সোনালী ব্যাংক হতে গৃহীত ঋণের তথ্যাবলী (কম্পট্রোলার অফিস কর্তৃক যাচাইকৃত) : 
-                </div>
-                <div>
-                    <table>
-                        <thead>
-                            <tr className='tableHead'>
-                                <th className='tableHeadText'>ক্রমিক নং</th>
-                                <th className='tableHeadText'>ঋণের নাম</th>
-                                <th className='tableHeadText'>ঋণের পরিমাণ</th>
-                                <th className='tableHeadText'>কিস্তির পরিমাণ</th>
-                                <th className='tableHeadText'>মোট কিস্তির সংখ্যা</th>
-                                <th className='tableHeadText'>পরিশোধিত কিস্তির সংখ্যা</th>
-                                <th className='tableHeadText'>অপরিশোধিত ঋণের পরিমাণ (সুদ সহ)</th>
-                                
-                            </tr>
-                        </thead>
-
-    
-                        {jsx_table_data}
-
-
-                    </table>
-                </div>
-
+            <div className="loan_logo">
+                <Logo />
             </div>
+            <div className='loan_info'>
+                <div className="loanInfo">
+                    <div className="loanInfoLabel">
+                        ১১. বিশ্ববিদ্যালয় ও সোনালী ব্যাংক হতে গৃহীত ঋণের তথ্যাবলী (কম্পট্রোলার অফিস কর্তৃক যাচাইকৃত) : 
+                    </div>
+                    <div className='loanInfoTable'>
+                        <table>
+                            <thead>
+                                <tr className='tableHead'>
+                                    <th className='tableHeadText'>ক্রমিক নং</th>
+                                    <th className='tableHeadText'>ঋণের নাম</th>
+                                    <th className='tableHeadText'>ঋণের পরিমাণ</th>
+                                    <th className='tableHeadText'>কিস্তির পরিমাণ</th>
+                                    <th className='tableHeadText'>মোট কিস্তির সংখ্যা</th>
+                                    <th className='tableHeadText'>পরিশোধিত কিস্তির সংখ্যা</th>
+                                    <th className='tableHeadText'>অপরিশোধিত ঋণের পরিমাণ (সুদ সহ)</th>
+                                    
+                                </tr>
+                            </thead>
+
+        
+                            {jsx_table_data}
+
+
+                        </table>
+                    </div>
+
+                </div>
+
+                <DoubleButton 
+                    firstButtonName="পূর্ববর্তী"
+                    secondButtonName="পরবর্তী"
+                    clickedButton={(clicked) => {onLoanAuthenticate(clicked)}}
+                />
+                
+            </div>
+            
+            
         </div>
     )
 }

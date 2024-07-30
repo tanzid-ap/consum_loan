@@ -1,0 +1,42 @@
+@media screen and (max-width: 800px) {
+
+    .normalButton{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.7rem;
+        color: crimson;
+        height: 1.7rem;
+        width: 3.5rem;
+        border-radius: 2rem;
+        background-color: white;
+        border-color: crimson;
+
+    }
+
+
+}
+
+
+@media screen and (min-width: 800px) {
+
+    .normalButton{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 1rem;
+        color: crimson;
+        height: 2.5rem;
+        width: 5rem;
+        border-radius: 2rem;
+        background-color: white;
+        border-color: crimson;
+
+    }
+
+}
+
+
+.doubleButton{
+    width: 100%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 5%;
+}

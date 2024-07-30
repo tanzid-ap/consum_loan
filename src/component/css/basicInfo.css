@@ -1,14 +1,18 @@
-@media screen and (min-width: 400px) {
+@media screen and (max-width: 800px) {
     
     .basicField{
+
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
         margin-top: 5%;
-        margin-left: 20%;
         margin-bottom: 3%;
         
     }
 
     .profilePicture{
-        margin-left: 15%;
         margin-bottom: 1%;
         padding: 1rem;
     }
@@ -47,6 +51,22 @@
         color: black;
         
     } 
+    .bisingleButton{
+        margin-top: 3%;
+        margin-bottom: 5%;
+    }
+
+    .binormalButton{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.7rem;
+        color: crimson;
+        height: 1.7rem;
+        width: 3.5rem;
+        border-radius: 2rem;
+        background-color: white;
+        border-color: crimson;
+
+    }
     
 
 }
@@ -55,13 +75,18 @@
 @media screen and (min-width: 800px) {
 
     .basicField{
-        margin-top: 1%;
-        margin-left: 20%;
+
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        margin-top: 5%;
         margin-bottom: 3%;
+        
     }
 
     .profilePicture{
-        margin-left: 25%;
         margin-bottom: 1%;
         padding: 1rem;
     }
@@ -101,4 +126,27 @@
         
     } 
 
+    .bisingleButton{
+        margin-top: 3%;
+        margin-bottom: 5%;
+    }
+
+    .binormalButton{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 1rem;
+        color: crimson;
+        height: 2.5rem;
+        width: 5rem;
+        border-radius: 2rem;
+        background-color: white;
+        border-color: crimson;
+
+    }
+
+}
+
+
+.basic_logo{
+    display: grid;
+    grid-template-columns: 100%;
 }

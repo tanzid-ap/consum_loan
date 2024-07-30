@@ -1,36 +1,35 @@
 
 
-
-@media screen and (min-width: 400px) {
+ 
+@media screen and (max-width: 800px) {
 
 
     .serviceInfo{
-        width: 75%;
-        position: relative;
+        width: 80%;
         border: 1px solid crimson;
         border-radius: 1rem;
-        padding: 1rem 1rem 1rem 1rem;
-        margin-top: 5%;
-        margin-bottom: 10px;
-        margin-left: 7%;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .serviceField{
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     }
 
 
     .serviceInfoLabel{
-        width: 100%;
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.7rem;
         font-weight: bold;
         color: crimson;
-        margin-bottom: 10px;
         text-align: center;
     }
 
     .siDataCheckBoxField{
-        position: relative;
-        line-height: 0;
-        margin-bottom: 35px;
-        margin-top: 20px;
+        display: flex;
+        width: 100%;
+        margin-bottom: 1%;
     }
     
     
@@ -38,10 +37,17 @@
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.6rem;
         color: crimson;
-        margin-right: 10px;
+        width: 25%;
         margin-bottom: 10px;
     }
 
+
+    .siCheckBox{
+        margin-left: 1%;
+        display: flex;
+        align-items: center;
+        align-content: center;
+    }
 
     .siDataCheckBox{
         margin-right: 0.5rem;
@@ -68,38 +74,20 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media screen and (min-width: 800px) {
 
     .serviceInfo{
-        width: 60%;
-        position: relative;
+        width: 70%;
         border: 1px solid crimson;
         border-radius: 1rem;
         padding: 1rem 1rem 1rem 1rem;
         margin-top: 2%;
         margin-bottom: 2%;
-        margin-left: 20%;
         
     }
 
     .serviceField{
-        margin-left: 5%;
+        padding: 1rem 1rem 1rem 1rem;
     }
 
 
@@ -112,11 +100,9 @@
     }
 
     .siDataCheckBoxField{
-        position: relative;
         display: flex;
-        line-height: normal;
-        margin-bottom: 0;
-        margin-top: 0;
+        width: 100%;
+        margin-bottom: 1%;
     }
     
     
@@ -124,8 +110,15 @@
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.8rem;
         color: crimson;
-        margin-right: 10px;
+        width: 25%;
         margin-bottom: 10px;
+    }
+
+    .siCheckBox{
+        margin-left: 1%;
+        display: flex;
+        align-items: center;
+        align-content: center;
     }
 
 
@@ -148,7 +141,5 @@
         position: relative;
         margin-left: 0.5rem;
     }
-
-
 
 }

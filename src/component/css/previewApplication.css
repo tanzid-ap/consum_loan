@@ -2,12 +2,12 @@
 
 
 
-@media screen and (min-width: 350px) {
+@media screen and (max-width: 800px) {
 
 
     .pageLabel{
         text-align: center;
-        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-family: 'AdorshoLipi',sans-serif, Arial  !important;
         font-size: 1rem;
         font-weight: bold;
     }
@@ -26,9 +26,20 @@
         padding: 0.25rem 0.5rem 0.25rem 0.5rem;
     }
 
+    .prePersInfoLabel{
+        font-family: 'AdorshoLipi', sans-serif, Arial !important;
+        font-size: 0.7rem;
+        font-weight: bold;
+        text-align: justify;
+    }
+
+    .preview_margin{
+        margin-top: 5%;
+    }
+
     .tableIndexCol{
         width: 6%;
-        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-family: 'AdorshoLipi',sans-serif, Arial  !important;
         font-size: 0.5rem;
         font-weight: bold;
         border: 1px solid black;
@@ -45,12 +56,12 @@
     }
     
     .tableValueCol{
-        font-family: 'AdorshoLipi', sans-serif, Arial  !important;
+        font-family: 'AdorshoLipi',sans-serif, Arial  !important;
         font-size: 0.5rem;
         text-align: left;
         padding-left: 0.5rem;
         border: 1px solid black;
-    
+        font-weight: lighter;
     }
 
     .preAppProPic{
@@ -68,7 +79,6 @@
         height: 60px;
         width: 60px;
         text-align: center;
-        border: 3px dashed crimson;
         padding: 0.5rem;
         position: relative;
         cursor: pointer;
@@ -78,27 +88,36 @@
         height: 25px;
         width: 80px;
         text-align: center;
-        border: 3px dashed crimson;
         padding: 0.5rem;
         position: relative;
         cursor: pointer;
     }
 
-    .preSingleButton{
+    .preButton{
+        display: flex;
         padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-        text-align: center;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 2%;
     }
 
     .preNormalButton{
-        font-family: 'AdorshoLipi', Arial, sans-serif !important;
-        font-size: 0.7rem;
+        font-family: 'AdorshoLipi',sans-serif, Arial  !important;
+        font-size: 0.6rem;
         color: crimson;
-        height: 1.5rem;
-        width: 3.5rem;
+        height: auto;
+        width: auto;
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
         border-radius: 2rem;
         background-color: white;
         border-color: crimson;
 
+    }
+
+    .preview_logo{
+        display: grid;
+        grid-template-columns: 100%;
+        margin-left: 15%;
     }
 
     
@@ -113,16 +132,17 @@
 
     .pageLabel{
         text-align: center;
-        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-family: 'AdorshoLipi',sans-serif, Arial  !important;
         font-size: 2rem;
         font-weight: bold;
+        margin-top: 1%;
     }
 
 
     .allField{
     
         display: grid;
-        grid-template-columns: 70%;
+        grid-template-columns: 90%;
         justify-content: center;
         align-items: center;
         padding: 1rem 1rem 1rem 1rem;
@@ -132,10 +152,21 @@
         padding: 0.5rem 1rem 0.5rem 1rem;
     }
 
+    .prePersInfoLabel{
+        font-family: 'AdorshoLipi', sans-serif, Arial !important;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: justify;
+    }
+
+    .preview_margin{
+        margin-top: 5%;
+    }
+
     .tableIndexCol{
         width: 5%;
-        font-family: 'AdorshoLipi', Arial, sans-serif !important;
-        font-size: 0.8rem;
+        font-family: 'AdorshoLipi',sans-serif, Arial  !important;
+        font-size: 1rem;
         font-weight: bold;
         border: 1px solid black;
     }
@@ -143,7 +174,7 @@
     .tableLabelCol{
         width: 20%;
         font-family: 'AdorshoLipi',sans-serif, Arial  !important;
-        font-size: 0.8rem;
+        font-size: 1rem;
         font-weight: bold;
         text-align: left;
         padding-left: 0.5rem;
@@ -152,17 +183,18 @@
     
     .tableValueCol{
         font-family: 'AdorshoLipi', sans-serif, Arial  !important;
-        font-size: 0.8rem;
+        font-size: 1rem;
         text-align: left;
         padding-left: 1rem;
         border: 1px solid black;
+        font-weight: normal;
     
     }
 
 
     .preAppProPic{
         padding: 1rem 1rem 1rem 1rem;
-        text-align: center;
+        text-align: right;
     }
 
 
@@ -172,10 +204,9 @@
     }
 
     .preAppProImg{
-        height: 100px;
-        width: 100px;
+        height: 150px;
+        width: 150px;
         text-align: center;
-        border: 3px dashed crimson;
         position: relative;
         cursor: pointer;
     }
@@ -185,28 +216,37 @@
         height: 40px;
         width: 150px;
         text-align: center;
-        border: 3px dashed crimson;
         position: relative;
         cursor: pointer;
     }
 
-    .preSingleButton{
+    .preButton{
+        display: flex;
         padding: 1rem 1rem 1rem 1rem;
-        text-align: center;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 2%;
     }
 
     .preNormalButton{
-        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-family: 'AdorshoLipi',sans-serif, Arial  !important;
         font-size: 1rem;
         color: crimson;
-        height: 2.5rem;
-        width: 7rem;
+        height: auto;
+        width: auto;
+        padding: 0.5rem 1rem 0.5rem 1rem;
         border-radius: 2rem;
         background-color: white;
         border-color: crimson;
 
     }
 
+
+    .preview_logo{
+        display: grid;
+        grid-template-columns: 100%;
+        margin-left: 30%;
+    }
 
 
 }
@@ -220,6 +260,14 @@
     justify-content: center;
     align-items: center;
 }
+
+.preBasicFieldwithProPic{
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+
+
 
 
 

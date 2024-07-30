@@ -8,13 +8,13 @@
 
 
 
-@media screen and (min-width: 350px) {
+@media screen and (max-width: 800px) {
 
     .singleButton{
         margin-left: 42%;
         margin-bottom: 5%;
     }
-
+/* 
     .normalButton{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.7rem;
@@ -33,7 +33,7 @@
         margin-left: 25%;
         margin-bottom: 5%;
     }
-
+ */
 
     .buttonMargin{
         margin-right: 35%;
@@ -48,7 +48,7 @@
         margin-left: 48%;
         margin-bottom: 5%;
     }
-
+/* 
     .normalButton{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 1rem;
@@ -67,7 +67,7 @@
         margin-left: 30%;
         margin-bottom: 5%;
     }
-
+ */
 
     .buttonMargin{
         margin-right: 35%;

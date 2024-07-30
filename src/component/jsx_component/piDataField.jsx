@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import "../css/piDataField.css";
+import "../css_component/piDataField.css";
 
 
 function PiDataField(props){
@@ -14,11 +14,11 @@ function PiDataField(props){
 
 
     return(
-        <div>
+
             <div className="piDataField" data-validate={props.validData}>
-                <span className="piDataLabel">
+                <div className="piDataLabel">
                     {props.label}
-                </span>
+                </div>
 
                 <div className='piDataInputField'>
                     <input onFocus={(e) => (e.target.type = props.dataType)} className="piDataInput" name={props.id} 
@@ -30,8 +30,6 @@ function PiDataField(props){
                 
 
             </div>
-
-        </div>
     )
 
 

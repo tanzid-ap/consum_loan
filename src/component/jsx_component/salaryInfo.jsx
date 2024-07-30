@@ -1,5 +1,5 @@
 import React from 'react';
-import "../css/salaryInfo.css";
+import "../css_component/salaryInfo.css";
 
 import salary_file from "../paySlip_file.json"
 
@@ -55,29 +55,27 @@ function SalaryInfo(props){
     
 
     return(
-        <div>
-            <div className="salaryInfo">
-                <div className="salaryInfoLabel">
-                    ১০. বেতন সংক্রান্ত তথ্যাবলী (বিগত তিন মাসের) : 
-                </div>
-                <div className='fullTable'>
-                    <table>
-                        <thead>
-                            <tr className='tableHead'>
-                                <th className='tableText'>মাস</th>
-                                
-                                <th><input className='tableDataInput' type='text' value={prevMonthName[0]} placeholder='বিগত মাস' name='prevMonth0' /></th>
-                                <th><input className='tableDataInput' type='text' value={prevMonthName[1]} placeholder='বিগত মাসের ১ মাস আগে' name='prevMonth1' /></th>
-                                <th><input className='tableDataInput' type='text' value={prevMonthName[2]} placeholder='বিগত মাসের ২ মাস আগে' name='prevMonth2' /></th>
-                            </tr>
-                        </thead>
-
-                        {salData}
-
-                    </table>
-                </div>
-
+        <div className="salaryInfo">
+            <div className="salaryInfoLabel">
+                ১০. বেতন সংক্রান্ত তথ্যাবলী (বিগত তিন মাসের) : 
             </div>
+            <div className='fullTable'>
+                <table>
+                    <thead>
+                        <tr className='tableHead'>
+                            <th className='tableText'>মাস</th>
+                            
+                            <th><input className='tableDataInput' type='text' value={prevMonthName[0]} placeholder='বিগত মাস' name='prevMonth0' /></th>
+                            <th><input className='tableDataInput' type='text' value={prevMonthName[1]} placeholder='বিগত মাসের ১ মাস আগে' name='prevMonth1' /></th>
+                            <th><input className='tableDataInput' type='text' value={prevMonthName[2]} placeholder='বিগত মাসের ২ মাস আগে' name='prevMonth2' /></th>
+                        </tr>
+                    </thead>
+
+                    {salData}
+
+                </table>
+            </div>
+
         </div>
     )
 }

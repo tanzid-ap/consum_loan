@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import "../css/dataCheckBoxField.css";
+import "../css_component/dataCheckBoxField.css";
 
 
 
@@ -44,15 +44,13 @@ function DataCheckBoxField(props){
 
     return(
             
-        <div>
-            <div className="dataCheckBoxField" data-validate="">
-                <div className="dataCheckBoxLabel">
-                    {props.label}
-                </div>
-
-                {data}
-
+        <div className="dataCheckBoxField" data-validate="">
+            <div className="dataCheckBoxLabel">
+                {props.label}
             </div>
+
+            {data}
+
         </div>
 
     )
