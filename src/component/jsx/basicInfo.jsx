@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useNavigate, useLocation } from 'react-router';
 import "../css/basicInfo.css";
 import imgfile from "../assets/uploadImg.png"
 import DataField from "../jsx_component/dataField";
@@ -6,31 +7,56 @@ import DataCheckBoxField from '../jsx_component/dataCheckBoxField';
 import Logo from '../jsx_component/logo';
 
 
-function BasicInfo(props){
+function BasicInfo(){
+
+    const basicNavigate = useNavigate();
+    const { state } = useLocation();
+    var basic_data = state;
+
+    // console.log(basic_data);
+
+
 
     const [proPicFile, setProPicFile] = useState(imgfile);
+    const [proPicFileError, setProPicFileError] = useState([]);
 
-    var basic_data = props.basic_data;
 
-    
+    const [loanType, setLoanType] = useState("");
+    const [loanTypeError, setLoanTypeError] = useState("");
 
     function handleChange(e) {
         setProPicFile(URL.createObjectURL(e.target.files[0]));
     }
 
-    // function handleInputChange(event){
-    //     const name = event.target.name;
-    //     if (name === "buetId"){
-    //         setBuetId(event.target.value);
-    //     }
-    //     if (name === "dob"){
-    //         setDob(event.target.value);
-    //     }
-    // }
+    function handleInputChange(event){
+        const name = event.target.name;
+        if (name === "buetId"){
+            setBuetId(event.target.value);
+        }
+        if (name === "dob"){
+            setDob(event.target.value);
+        }
+    }
 
 
     function validBasicInfo(){
+        if(proPicFile === imgfile){
+            const tem = [];
+            tem.push(
+                <span className='profilePictureErrorText'>আবেদনকারীর ছবি দিন***</span>
+            );
+            setProPicFileError(tem);
+            return false;
+        }else{
+            setProPicFileError([]);
+        }
 
+        if(loanType === ""){
+            setLoanTypeError("আবেদনকৃত ঋণের ধরণ নির্বাচন করুন***");
+            return false;
+        }else{
+            setLoanTypeError("");
+        }
 
         return true;
     }
@@ -39,7 +65,9 @@ function BasicInfo(props){
     function onBasicAuthenticate(e){
         e.preventDefault();
 
-        props.onBasicValidate(validBasicInfo());
+        if(validBasicInfo()){
+            basicNavigate("/application/2", {state : basic_data})
+        }
 
     }
 
@@ -50,18 +78,17 @@ function BasicInfo(props){
             </div>
             <div className="basicField">
 
-                <div className='profilePicture'>
-                    <div className='profileImg'>
-                        <img className='proImgFile' src={proPicFile} />
-                        <span className='profilePictureText'>আবেদনকারীর ছবি</span>
-                        <input className='profileImgFile' type="file"  onChange={handleChange} />
-                    </div>
+                <div className='profileImg'>
+                    <img className='proImgFile' src={proPicFile} />
+                    <span className='profilePictureText'>আবেদনকারীর ছবি*</span>
+                    {proPicFileError}
+                    <input className='profileImgFile' type="file"  onChange={handleChange} />
                 </div>
 
                 <DataField 
                     id="applicantName" 
                     dataType="text"
-                    validData="আপনার পূর্ণনাম লিখুন" 
+                    validData="" 
                     label="১. আবেদনকারীর নাম* : " 
                     value={basic_data["EMPLOYEE_NAME"]}
                     placeholder="যেমন: আবু হাশেম মোহাম্মদ"
@@ -70,7 +97,7 @@ function BasicInfo(props){
                 <DataField 
                     id="designation" 
                     dataType="text"
-                    validData="আপনার পদবী লিখুন" 
+                    validData="" 
                     label="২. পদবী* : " 
                     value={basic_data["DESIGNATION"]}
                     placeholder="যেমন: প্রভাষক"
@@ -79,7 +106,7 @@ function BasicInfo(props){
                 <DataField 
                     id="officeDepartment" 
                     dataType="text"
-                    validData="আপনার অফিস/বিভাগ লিখুন" 
+                    validData="" 
                     label="৩. অফিস/বিভাগ* : " 
                     value={basic_data["OFFICE"]}
                     placeholder="যেমন: রসায়ন"
@@ -88,7 +115,7 @@ function BasicInfo(props){
                 <DataField 
                     id="accountNo" 
                     dataType="text"
-                    validData="আপনার সোনালী ব্যাংক, বুয়েট শাখায় পরিচালিত হিসাব নম্বর লিখুন" 
+                    validData="" 
                     label="৪. সোনালী ব্যাংক, বুয়েট শাখায় পরিচালিত হিসাব নম্বর* : " 
                     value={"44040"+basic_data["BANK_ACCOUNT_NO"]}
                     placeholder="যেমন: ৪৪০৪০********"
@@ -97,12 +124,14 @@ function BasicInfo(props){
                 <DataCheckBoxField
                     id="loanType"
                     label="৫. যে ঋণের জন্যে আবেদন করা হয়েছে* : "
-                    items={["মোটরযান ক্রয়/গৃহ নির্মাণ/মেরামত/জমি ক্রয় ঋণ",
+                    items={[["মোটরযান ক্রয়/গৃহ নির্মাণ/মেরামত/জমি ক্রয় ঋণ",
                         "ভোগ্যপণ্য ঋণ",
                         "ল্যাপটপ ঋণ",
                         "সোনালী ব্যাংকের গৃহ ক্রয়/গৃহ নির্মাণ/মেরামত/জমি ক্রয় ঋণ",
                         "সোনালী ব্যাংকের পারসোনাল/অন্যান্য (Any Purpose) ঋণ"
-                    ]}
+                    ],["House Building Loan", "Consumer Loan", "Laptop Loan", "Sonali House Building Loan", "Sonali Any Purpose Loan"]]}
+                    value={(data) => {setLoanType(data)}}
+                    validData={loanTypeError}
                     
                 />
 

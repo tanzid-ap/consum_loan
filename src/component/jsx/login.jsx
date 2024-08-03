@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import "../css/login.css";
-import emp_data from "../employee_file.json"
+import emp_data from "../employee_file.json";
 import Logo from '../jsx_component/logo';
 
-function Login(props){
+
+
+function Login(){
 
 
     const [err_text_color, setErr_text_color] = useState(true);
+
+    const loginNavigate = useNavigate();
+
 
     const [buetId, setBuetId] = useState("");
     const [dob, setDob] = useState("");
@@ -32,7 +39,7 @@ function Login(props){
         for(let i=0;i<emp_data_length;i++){
             if (buetId === emp_data[i]["IDNO"] && dob === emp_data[i]["DATE_OF_BIRTH"]) {
                 data_found = true;
-                props.onAuthenticate(true, emp_data[i]);
+                loginNavigate('/application/1', { state: emp_data[i] });
                 break;
             }
         }

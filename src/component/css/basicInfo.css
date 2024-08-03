@@ -18,13 +18,16 @@
     }
 
     .profileImg{
-        height: 90px;
-        width: 90px;
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: center;
+        padding: 0.5rem 1rem 0.5rem 1rem;
         text-align: center;
         border: 3px dashed crimson;
         padding: 0.5rem;
         position: relative;
         cursor: pointer;
+        margin-bottom: 2%;
     }
 
     .proImgFile{
@@ -51,6 +54,13 @@
         color: black;
         
     } 
+
+    .profilePictureErrorText{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.5rem;
+        color: red;
+    }
+
     .bisingleButton{
         margin-top: 3%;
         margin-bottom: 5%;
@@ -92,19 +102,23 @@
     }
 
     .profileImg{
-        height: 180px;
-        width: 180px;
+
+        display: grid;
+        grid-template-columns: 100%;
+        justify-content: center;
+        padding: 1rem 2rem 1rem 2rem;
         text-align: center;
         border: 3px dashed crimson;
-        padding: 0.5rem;
         position: relative;
         cursor: pointer;
+        margin-bottom: 2%;
     }
 
     .proImgFile{
         width: 150px;
         height: 150px;
         margin-bottom: 1%;
+
     }
 
     .profileImgFile{
@@ -125,6 +139,12 @@
         color: black;
         
     } 
+
+    .profilePictureErrorText{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        color: red;
+    }
 
     .bisingleButton{
         margin-top: 3%;

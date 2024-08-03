@@ -5,19 +5,23 @@
         position: relative;
         border: 1px solid crimson;
         border-radius: 0.5rem;
-        padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+        padding: 0.7rem;
         margin-bottom: 10px;
     }
-    
     
     .dataCheckBoxLabel{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.6rem;
         font-weight: bold;
-        color: crimson;
-        margin-bottom: 1px;
+        color: black;
     }
-    
+
+    .dataCheckBoxValid{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.4rem;
+        font-weight: bold;
+        color: red;
+    } 
     
     .dataCheckBox{
         margin-bottom: 1px;
@@ -50,20 +54,24 @@
         position: relative;
         border: 1px solid crimson;
         border-radius: 1rem;
-        padding: 2rem 2rem 2rem 2rem;
+        padding: 2rem;
         margin-bottom: 20px;
         
-    }
-    
+    }  
     
     .dataCheckBoxLabel{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 1rem;
         font-weight: bold;
-        color: crimson;
-        margin-bottom: 10px;
-    }
-    
+        color: black;
+    }  
+
+    .dataCheckBoxValid{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: red;
+    }  
     
     .dataCheckBox{
         margin-bottom: 0.5rem;
@@ -88,6 +96,11 @@
 
 
 
+.dataCheckBoxLabelValid{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1%;
+}
 
 
 

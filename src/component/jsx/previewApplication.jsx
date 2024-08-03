@@ -1,4 +1,5 @@
 import React, {useRef} from "react";
+import { useNavigate, useLocation } from 'react-router';
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import "../css/previewApplication.css";
@@ -11,6 +12,9 @@ import Sign from "../assets/Sign_pic.jpg"
 
 
 function PreviewApplication(props){
+
+    const previewNavigate = useNavigate();
+    const { state } = useLocation();
 
 
     const pdfRef = useRef();
@@ -146,7 +150,7 @@ function PreviewApplication(props){
 
     const onClickEdit = (e) => {
         e.preventDefault();
-        props.onEdit(true, false);
+        previewNavigate('/application/1', { state: state });
 
     };
 
@@ -177,7 +181,7 @@ function PreviewApplication(props){
     const onClickSubmit = (e) => {
         e.preventDefault();
         downloadpdf();
-        props.onEdit(false, true);
+        previewNavigate("/");
 
     };
 

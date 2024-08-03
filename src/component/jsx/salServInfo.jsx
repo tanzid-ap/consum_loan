@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useNavigate, useLocation } from 'react-router';
 import "../css/salServInfo.css";
 import Logo from "../jsx_component/logo";
 
@@ -6,11 +7,13 @@ import ServiceInfo from '../jsx_component/serviceInfo';
 import SalaryInfo from '../jsx_component/salaryInfo';
 import DoubleButton from '../jsx_component/doubleButton';
 
-function SalServInfo(props){
+function SalServInfo(){
+
+    const salServNavigate = useNavigate();
+    const { state } = useLocation();
 
 
     function validSalServInfo(){
-
 
         return true;
     }
@@ -18,10 +21,12 @@ function SalServInfo(props){
     function onSalServAuthenticate(button){
 
         if(button == "first")
-            props.onServSalValidate(true, false);
+            salServNavigate("/application/2", {state : state});
 
         if(button == "second"){
-            props.onServSalValidate(false, validSalServInfo());
+            if(validSalServInfo()){
+                salServNavigate("/application/4", {state : state});
+            }
         }
 
     }
@@ -35,9 +40,9 @@ function SalServInfo(props){
 
             <div className='salServ_info'>
 
-                <ServiceInfo service_data={props.salServ_data} />
+                <ServiceInfo service_data={state} />
 
-                <SalaryInfo salary_data={props.salServ_data} />
+                <SalaryInfo salary_data={state} />
 
                 <DoubleButton 
                     firstButtonName="পূর্ববর্তী"

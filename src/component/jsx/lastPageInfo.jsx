@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router';
 import "../css/lastPageInfo.css";
 import signImg from "../assets/uploadImg.png"
 import Logo from '../jsx_component/logo';
@@ -6,6 +7,9 @@ import DoubleButton from '../jsx_component/doubleButton';
 
 
 function LastPageInfo(props){
+
+    const lastNavigate = useNavigate();
+    const { state } = useLocation();
 
     const [signFile, setSignFile] = useState(signImg);
 
@@ -24,10 +28,12 @@ function LastPageInfo(props){
     function onLastAuthenticate(button){
 
         if(button == "first")
-            props.onLastValidate(true, false);
+            lastNavigate("/application/4", {state : state});
 
         if(button == "second"){
-            props.onLastValidate(false, validLastInfo());
+            if(validLastInfo()){
+                lastNavigate("/application/preview", {state : state});
+            }
         }
 
     }

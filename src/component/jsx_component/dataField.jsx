@@ -17,10 +17,15 @@ function DataField(props){
 
     return(
 
-        <div className="dataField" data-validate={props.validData}>
-            <span className="dataLabel">
-                {props.label}
-            </span>
+        <div className="dataField" >
+            <div className='dataLabelValid'>
+                <span className="dataLabel">
+                    {props.label}
+                </span>
+                <div className="dataValid">
+                    {props.validData}
+                </div>
+            </div>
 
             <div className='dataInputField'>
                 <input type={props.dataType} className="dataInput" name={props.id} 

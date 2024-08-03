@@ -12,14 +12,19 @@
     
     }
     
-    
     .dataLabel{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.6rem;
         font-weight: bold;
-        color: crimson;
+        color: black;
     }
 
+    .dataValid{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.4rem;
+        font-weight: bold;
+        color: red;
+    }
 
     .dataInputField{
         display: flex;
@@ -62,13 +67,19 @@
         margin-bottom: 20px;
     
     }
-    
-    
+
     .dataLabel{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 1rem;
         font-weight: bold;
-        color: crimson;
+        color: black;
+    }
+
+    .dataValid{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: red;
     }
     
 
@@ -99,5 +110,11 @@
     }
 }
 
+
+
+.dataLabelValid{
+    display: flex;
+    justify-content: space-between;
+}
 
 

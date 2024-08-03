@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router';
 import "../css/loanInfo.css";
 import Logo from '../jsx_component/logo';
 import DoubleButton from '../jsx_component/doubleButton';
@@ -6,9 +7,12 @@ import DoubleButton from '../jsx_component/doubleButton';
 import loan_file from "../employee_loan_file.json"
 
 
-function LoanInfo(props){
+function LoanInfo(){
 
-    var loan_data = props.loan_data;
+
+    const loanNavigate = useNavigate();
+    const { state } = useLocation();
+    var loan_data = state;
 
 
     const table_data = [
@@ -94,10 +98,13 @@ function LoanInfo(props){
     function onLoanAuthenticate(button){
 
         if(button == "first")
-            props.onLoanValidate(true, false);
+            loanNavigate("/application/3", {state : loan_data});
 
         if(button == "second"){
-            props.onLoanValidate(false, validLoanInfo());
+            if(validLoanInfo()){
+                loanNavigate("/application/5", {state : loan_data});
+            }
+            
         }
 
     }

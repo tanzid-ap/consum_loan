@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
+import { useNavigate, useLocation } from 'react-router';
 import "../css/personalInfo.css";
 import PiDataField from '../jsx_component/piDataField';
 import Logo from '../jsx_component/logo';
 import DoubleButton from '../jsx_component/doubleButton';
 
-function PersonalInfo(props){
+function PersonalInfo(){
 
-    var personal_data = props.personal_data;
+    const personalNavigate = useNavigate();
+    const { state } = useLocation();
+
+    var personal_data = state;
 
     const [presentAddressValue, setPresentAddressValue] = useState(personal_data["ADDRESS"]);
     const [permanantAddressValue, setPermanantAddressValue] = useState(personal_data["ADDRESS"]);
@@ -31,10 +35,12 @@ function PersonalInfo(props){
     function onPersonalAuthenticate(button){
 
         if(button == "first")
-            props.onPersonalValidate(true, false);
+            personalNavigate('/application/1', { state: personal_data });
 
         if(button == "second"){
-            props.onPersonalValidate(false, validPersonalInfo());
+            if(validPersonalInfo()){
+                personalNavigate('/application/3', { state: personal_data });
+            }
         }
 
     }
