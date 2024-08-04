@@ -7,6 +7,7 @@ function ServiceInfo(props){
 
     var service_data = props.service_data;
 
+
     var serv_type = false;
     if(service_data["APPOINTMENT_TYPE"] === "Permanent"){
         serv_type = true;
@@ -14,7 +15,7 @@ function ServiceInfo(props){
 
     const [servCheckBox, setServCheckBox] = useState([serv_type, !serv_type]);
     const default_servCheckBox = [serv_type, !serv_type];
-
+    
     const now = new Date();
     const first_join_date = new Date(service_data["DATE_FIRST_JOIN"]);
 
@@ -63,9 +64,6 @@ function ServiceInfo(props){
     var date_of_birth = birth_date.toLocaleDateString().split("/").reverse().join("-");
 
 
-
-
-
     function servCheckBoxHandle(e){
         const {name} = e.target;
         var tempServBox = [...servCheckBox];
@@ -92,11 +90,10 @@ function ServiceInfo(props){
                 <PiDataField
                     id="buetIdNo" 
                     dataType="text"
-                    validData="আপনার বুয়েট আই.ডি. নং লিখুন" 
+                    validData="" 
                     label="ক) বুয়েট আই.ডি. নং : " 
                     value={service_data["IDNO"]}
                     placeholder="যেমন: T201614032"
-                
                 />
 
                 <div className="siDataCheckBoxField" data-validate="">
@@ -123,18 +120,17 @@ function ServiceInfo(props){
                 <PiDataField
                     id="uniJoinDate" 
                     dataType="text"
-                    validData="আপনার বিশ্ববিদ্যালয়ে যোগদানের তারিখ লিখুন" 
+                    validData="" 
                     label="গ) বিশ্ববিদ্যালয়ে যোগদানের তারিখ : " 
                     value={service_data["DATE_FIRST_JOIN"]}
                     placeholder="যেমন: ২৬/০৫/২০১০"
-                
                 />
 
 
                 <PiDataField
                     id="unSevicePeriod" 
                     dataType="text"
-                    validData="আপনি এই বিশ্ববিদ্যালয়ে মোট কতকাল চাকুরী করেছেন" 
+                    validData="" 
                     label="ঘ) এই বিশ্ববিদ্যালয়ে মোট চাকুরীকাল : " 
                     value={yearDuration+" বছর, "+monthDuration+" মাস, "+dateDuration+" দিন"}
                     placeholder="যেমন: ১১ বছর ৮ মাস ১৬ দিন"
@@ -144,11 +140,10 @@ function ServiceInfo(props){
                 <PiDataField
                     id="uniRetiredDate" 
                     dataType="text"
-                    validData=" " 
+                    validData="" 
                     label="ঙ) চাকুরীর বয়স পূর্তির তারিখ (শিক্ষকের বয়স ৬৫ বছর, কর্মকর্তা/কর্মচারীর বয়স ৬০ বছর): " 
                     value={date_of_birth}
                     placeholder="যেমন: ৩০/০৭/২০৫১"
-                
                 />
 
 

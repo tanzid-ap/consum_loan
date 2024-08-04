@@ -19,7 +19,7 @@
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.7rem;
         font-weight: bold;
-        color: crimson;
+        color: black;
         margin-bottom: 2%;
         text-align: center;
     }
@@ -27,14 +27,14 @@
     .tableHeadText{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.6rem;
-        color: crimson;
+        color: black;
     }
 
 
     .tableText{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.6rem;
-        color: crimson;
+        color: black;
     }
 
 
@@ -76,7 +76,7 @@
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 1rem;
         font-weight: bold;
-        color: crimson;
+        color: black;
         text-align: center;
         margin-bottom: 2%;
     }
@@ -84,7 +84,7 @@
     .tableHeadText{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.8rem;
-        color: crimson;
+        color: black;
     }
 
 
@@ -92,7 +92,7 @@
     .tableText{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.8rem;
-        color: crimson;
+        color: black;
     }
 
 

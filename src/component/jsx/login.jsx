@@ -39,7 +39,7 @@ function Login(){
         for(let i=0;i<emp_data_length;i++){
             if (buetId === emp_data[i]["IDNO"] && dob === emp_data[i]["DATE_OF_BIRTH"]) {
                 data_found = true;
-                loginNavigate('/application/1', { state: emp_data[i] });
+                loginNavigate('/application/1', { state: {info: emp_data[i], used: "no"} });
                 break;
             }
         }
@@ -50,7 +50,6 @@ function Login(){
             setErr_text_color(!err_text_color);
             var e_t_c = "red";
             if(err_text_color) e_t_c = "black";
-            else e_t_c = "red";
 
             const temp = [];
             temp.push(

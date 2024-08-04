@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import "../css/lastPageInfo.css";
 import signImg from "../assets/uploadImg.png"
@@ -6,12 +6,22 @@ import Logo from '../jsx_component/logo';
 import DoubleButton from '../jsx_component/doubleButton';
 
 
-function LastPageInfo(props){
+function LastPageInfo(){
 
     const lastNavigate = useNavigate();
     const { state } = useLocation();
 
     const [signFile, setSignFile] = useState(signImg);
+    const [signFileError, setSignFileError] = useState([]);
+
+    const signPicRef = useRef(null);
+
+    const scrollToSection = (elementRef) => {
+        window.scrollTo({
+            top: elementRef.current.offsetTop,
+            behavior: "smooth",
+        });
+    };
 
 
     function handleSignChange(e) {
@@ -20,7 +30,17 @@ function LastPageInfo(props){
 
 
     function validLastInfo(){
-
+        if(signFile === signImg){
+            const tem = [];
+            tem.push(
+                <span className='signPictureErrorText'>আবেদনকারীর স্বাক্ষর দিন<br/> তারিখ সহ***</span>
+            );
+            setSignFileError(tem);
+            scrollToSection(signPicRef);
+            return false;
+        }else{
+            setSignFileError([]);
+        }
 
         return true;
     }
@@ -82,11 +102,12 @@ function LastPageInfo(props){
                     </div>
                 </div>
 
-                <div className='signature'>
+                <div className='signature' ref={signPicRef}>
                     <div className='signPic'>
                         <img className='signImg' src={signFile} />
                         <div className='signPictureText'>আবেদনকারীর স্বাক্ষর <br/> তারিখ সহ</div>
                         <input className='signImgFile' type="file"  onChange={handleSignChange} />
+                        {signFileError}
                     </div>
                 </div>
 

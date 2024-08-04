@@ -4,20 +4,10 @@ import "../css_component/dataField.css";
 
 function DataField(props){
 
-    // const [dataFieldValue, setDataFieldValue] = useState("");
-    const [dataFieldValue, setDataFieldValue] = useState(props.value);
-
-
-    function clearBtnHandle(e){
-        e.preventDefault();            
-        setDataFieldValue("");
-    }
-
-
 
     return(
 
-        <div className="dataField" >
+        <div className="dataField" ref={props.refer}>
             <div className='dataLabelValid'>
                 <span className="dataLabel">
                     {props.label}
@@ -29,9 +19,9 @@ function DataField(props){
 
             <div className='dataInputField'>
                 <input type={props.dataType} className="dataInput" name={props.id} 
-                placeholder={props.placeholder} value={dataFieldValue} onChange={(e) => setDataFieldValue(e.target.value)}/>
+                placeholder={props.placeholder} value={props.value} onChange={ (e) => {props.setValue(e.target.value);}  }/>
 
-                <button className="dataClearBtn" onClick={clearBtnHandle}>×</button>
+                <button className="dataClearBtn" onClick={ (e) => {e.preventDefault(); props.setValue("");} }>×</button>
             </div>
 
             

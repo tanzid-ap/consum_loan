@@ -22,7 +22,7 @@
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.7rem;
         font-weight: bold;
-        color: crimson;
+        color: black;
         text-align: center;
     }
 
@@ -36,7 +36,7 @@
     .siDataCheckBoxLabel{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.6rem;
-        color: crimson;
+        color: black;
         width: 25%;
         margin-bottom: 10px;
     }
@@ -95,7 +95,7 @@
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 1rem;
         font-weight: bold;
-        color: crimson;
+        color: black;
         text-align: center;
     }
 
@@ -109,7 +109,7 @@
     .siDataCheckBoxLabel{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.8rem;
-        color: crimson;
+        color: black;
         width: 25%;
         margin-bottom: 10px;
     }

@@ -4,27 +4,28 @@ import "../css_component/piDataField.css";
 
 function PiDataField(props){
 
-    const [piDataFieldValue, setPiDataFieldValue] = useState(props.value);
+    var dataLabel = "";
+    var label_color = "black";
 
-    function clearPiBtnHandle(e){
-        e.preventDefault();
-        const {name} = e.target;
-        setPiDataFieldValue("");
+    if(props.validData === ""){
+        dataLabel = props.label;
+    }else{
+        dataLabel = props.validData;
+        label_color = "red";
     }
-
 
     return(
 
-            <div className="piDataField" data-validate={props.validData}>
-                <div className="piDataLabel">
-                    {props.label}
+            <div className="piDataField" ref={props.refer}>
+                <div className="piDataLabel" style={{ color: label_color }}>
+                    {dataLabel}
                 </div>
 
                 <div className='piDataInputField'>
                     <input onFocus={(e) => (e.target.type = props.dataType)} className="piDataInput" name={props.id} 
-                    placeholder={props.placeholder} value={piDataFieldValue} onChange={(e) => setPiDataFieldValue(e.target.value)}/>
+                    placeholder={props.placeholder} value={ props.value } onChange={(e) => { props.setValue(e.target.value); }}/>
 
-                    <button className="piDataClearBtn" name={props.id} onClick={clearPiBtnHandle}>×</button>
+                    <button className="piDataClearBtn" onClick={(e) => { e.preventDefault(); props.setValue(""); }}>×</button>
                 </div>
 
                 

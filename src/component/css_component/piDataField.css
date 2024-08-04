@@ -16,7 +16,7 @@
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         text-align: justify;
         font-size: 0.6rem;
-        color: crimson;
+        color: black;
         margin-right: 0.5rem;
     }
 
@@ -60,11 +60,11 @@
 
 
     .piDataLabel{
-        width: 25%;
+        width: 26%;
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         text-align: justify;
         font-size: 0.8rem;
-        color: crimson;
+        color: black;
         margin-right: 1rem;
     }
 
@@ -81,7 +81,7 @@
         background: 0 0;
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.8rem;
-        color: #0c0c0c;
+        color: black;
     }
 
     .piDataClearBtn{

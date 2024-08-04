@@ -26,7 +26,7 @@
     .tableText{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.6rem;
-        color: crimson;
+        color: black;
     }
 
 
@@ -65,8 +65,9 @@
     }
 
     .signPic{
-        width: 180px;
-        height: 80px;
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
         text-align: center;
         border: 3px dashed crimson;
         padding: 0.5rem 0.5rem 0.5rem 0.5rem;
@@ -99,6 +100,12 @@
         left: 0;
         right: 0;
         opacity: 0;
+    }
+
+    .signPictureErrorText{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.5rem;
+        color: red;
     }
 
 
@@ -171,7 +178,7 @@
     .tableText{
         font-family: 'AdorshoLipi', Arial, sans-serif !important;
         font-size: 0.8rem;
-        color: crimson;
+        color: black;
     }
 
 
@@ -211,11 +218,12 @@
     }
 
     .signPic{
-        width: 280px;
-        height: 100px;
+        display: grid;
+        grid-template-columns: 100%;
+        justify-items: center;
         text-align: center;
         border: 3px dashed crimson;
-        padding: 1rem 1rem 1rem 1rem;
+        padding: 1rem;
         cursor: pointer;
         position: relative;
         float: right;
@@ -246,6 +254,12 @@
         left: 0;
         right: 0;
         opacity: 0;
+    }
+
+    .signPictureErrorText{
+        font-family: 'AdorshoLipi', Arial, sans-serif !important;
+        font-size: 0.8rem;
+        color: red;
     }
 
     

@@ -5,11 +5,20 @@ import "../css_component/dataCheckBoxField.css";
 
 function DataCheckBoxField(props){
 
-    const [checkOPT, setCheckOPT] = useState([false, false, false,false,false]);
-    const default_checkOPT = [false, false, false,false,false];
-    const [checkedValue, setCheckedValue] = useState("");
+    
+    const default_checkOPT = [false, false, false, false, false];
+    const [checkOPT, setCheckOPT] = useState(default_checkOPT);
 
     const items = props.items;
+    var value_index = -1;
+
+    if(props.value != ""){
+        for(let i=0;i<items[1].length;i++){
+            if(props.value === items[1][i]){
+                value_index = i;
+            }
+        }
+    }
 
     const chechBoxHandle = (e) => {
         const { name } = e.target;
@@ -19,22 +28,28 @@ function DataCheckBoxField(props){
         if(!temp){
             tempBox = [...default_checkOPT];
             tempBox[name] = !tempBox[name];
-            setCheckedValue(e.target.value);
+            props.setValue(e.target.value);
         }else{
             tempBox[name] = !tempBox[name];
-            setCheckedValue("");
+            props.setValue("");
         }
         setCheckOPT(tempBox);
-        props.value(checkedValue);
+        
     };
 
     const data = [];
 
-    for(let i=0;i<items[0].length;i++){
+    for(let i=0;i<items[1].length;i++){
         var index = i;
+        var checkedValue = checkOPT[i];
+
+        if(value_index == i){
+            checkedValue = true;
+        }
+
         data.push(
             <div className="dataCheckBox">
-                <input className="dataCheckBoxInput" type='checkbox' checked={checkOPT[i]}
+                <input className="dataCheckBoxInput" type='checkbox' checked={checkedValue}
                  name={index} value={items[1][i]} onChange={chechBoxHandle}/>
                 <div className="dataCheckBoxValue">{items[0][i]}</div>
             </div>
@@ -46,7 +61,7 @@ function DataCheckBoxField(props){
 
     return(
             
-        <div className="dataCheckBoxField" data-validate="">
+        <div className="dataCheckBoxField" ref={props.refer}>
             <div className="dataCheckBoxLabelValid">
                 <div className="dataCheckBoxLabel">
                     {props.label}

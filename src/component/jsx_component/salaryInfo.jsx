@@ -38,6 +38,8 @@ function SalaryInfo(props){
         
     }
 
+    
+
     for(let i=0;i<4;i++){
         salData.push(
             <tbody>

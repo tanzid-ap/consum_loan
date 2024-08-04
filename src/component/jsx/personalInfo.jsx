@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import { useNavigate, useLocation } from 'react-router';
 import "../css/personalInfo.css";
 import PiDataField from '../jsx_component/piDataField';
@@ -10,23 +10,85 @@ function PersonalInfo(){
     const personalNavigate = useNavigate();
     const { state } = useLocation();
 
-    var personal_data = state;
+    var personal_data = state["info"];
+    
+    if(state["used"] === "no"){
+        personal_data["MOTHERS_NAME"] = "";
+        personal_data["NOMINEES_NAME"] = "";
+        personal_data["NOMINEES_RELSHIP"] = "";
+        personal_data["NOMINEES_NID"] = "";
+    }
+
+    const piFatherNameRef = useRef(null);
+    const piMotherNameRef = useRef(null);
+    const piNomineeNameRef = useRef(null);
+    const piNomineeRelshipRef = useRef(null);
+    const piDOBRef = useRef(null);
+    const piNIDRef = useRef(null);
+    const piNomineeNIDRef = useRef(null);
+
+    const scrollToSection = (elementRef) => {
+        window.scrollTo({
+            top: elementRef.current.offsetTop,
+            behavior: "smooth",
+        });
+    };
+
+
+    const [fatherName, setFatherName] = useState(personal_data["FATHERS_NAME"]);
+
+    const [motherName, setMotherName] = useState(personal_data["MOTHERS_NAME"]);
+    const [motherNameError, setMotherNameError] = useState("");
+    
+    const [nomineeName, setNomineeName] = useState(personal_data["NOMINEES_NAME"]);
+    const [nomineeNameError, setNomineeNameError] = useState("");
+
+    const [nomineeRelship, setNomineeRelship] = useState(personal_data["NOMINEES_RELSHIP"]);
+    const [nomineeRelshipError, setNomineeRelshipError] = useState("");
+
+    const [dob, setDOB] = useState(personal_data["DATE_OF_BIRTH"]);
+    const [nID, setNID] = useState(personal_data["NID_NO"]);
+
+    const [nomineeNID, setNomineeNID] = useState(personal_data["NOMINEES_NID"]);
+    const [nomineeNIDError, setNomineeNIDError] = useState("");
 
     const [presentAddressValue, setPresentAddressValue] = useState(personal_data["ADDRESS"]);
     const [permanantAddressValue, setPermanantAddressValue] = useState(personal_data["ADDRESS"]);
 
-    function presentAddressValueHandle(e){
-        e.preventDefault();
-        setPresentAddressValue("");
-    }
-
-    function permanantAddressValueHandle(e){
-        e.preventDefault();
-        setPermanantAddressValue("");
-    }
-
 
     function validPersonalInfo(){
+
+        if(motherName === ""){
+            setMotherNameError("খ) আপনার মাতার নাম লিখুন***");
+            scrollToSection(piMotherNameRef);
+            return false;
+        }else{
+            setMotherNameError("");
+        }
+
+        if(nomineeName === ""){
+            setNomineeNameError("গ) আপনার নমিনীর নাম লিখুন***");
+            scrollToSection(piNomineeNameRef);
+            return false;
+        }else{
+            setNomineeNameError("");
+        }
+
+        if(nomineeRelship === ""){
+            setNomineeRelshipError("ঘ) আপনার সাথে নমিনীর সম্পর্ক লিখুন***");
+            scrollToSection(piNomineeRelshipRef);
+            return false;
+        }else{
+            setNomineeRelshipError("");
+        }
+
+        if(nomineeNID === ""){
+            setNomineeNIDError("ঝ) নমিনীর জাতীয় পরিচয়পত্র নম্বর লিখুন***");
+            scrollToSection(piNomineeNIDRef);
+            return false;
+        }else{
+            setNomineeNIDError("");
+        }
 
 
         return true;
@@ -34,18 +96,23 @@ function PersonalInfo(){
 
     function onPersonalAuthenticate(button){
 
-        if(button == "first")
-            personalNavigate('/application/1', { state: personal_data });
+        personal_data["MOTHERS_NAME"] = motherName;
+        personal_data["NOMINEES_NAME"] = nomineeName;
+        personal_data["NOMINEES_RELSHIP"] = nomineeRelship;
+        personal_data["NOMINEES_NID"] = nomineeNID;
+
+        if(button == "first"){
+            personalNavigate('/application/1', { state: {info: personal_data, used: "yes"} });
+        }
+            
 
         if(button == "second"){
             if(validPersonalInfo()){
-                personalNavigate('/application/3', { state: personal_data });
+                personalNavigate('/application/3', { state: {info: personal_data, used: "yes"} });
             }
         }
 
     }
-
-
 
 
     return(
@@ -55,6 +122,8 @@ function PersonalInfo(){
                 <Logo />
             </div>
             <div className='perInfo'>
+
+
                 <div className="personalInfo">
                     <div className="personalInfoLabel">
                         ৮. ব্যক্তিগত তথ্যাবলী : 
@@ -63,52 +132,60 @@ function PersonalInfo(){
 
                     <PiDataField 
                         id="piFatherName" 
+                        refer={ piFatherNameRef }
                         dataType="text"
-                        validData="আপনার পিতা/স্বামীর নাম লিখুন" 
-                        label="ক) পিতা/স্বামীর নাম : " 
-                        value={personal_data["FATHERS_NAME"]}
-                        placeholder="যেমন: আবুল হাশেম"
+                        validData="" 
+                        label="ক) পিতা/স্বামীর নাম* : " 
+                        value={ fatherName }
+                        setValue={(data) => {setFatherName(data)}}
+                        placeholder="i.e Abul Hashem"
                     />
 
                     <PiDataField 
                         id="piMotherName" 
+                        refer={ piMotherNameRef }
                         dataType="text"
-                        validData="আপনার মাতার নাম লিখুন" 
-                        label="খ) মাতার নাম : " 
-                        value={""}
-                        placeholder="যেমন: আনোয়ারা বেগম"
+                        validData={motherNameError} 
+                        label="খ) মাতার নাম* : " 
+                        value={ motherName }
+                        setValue={(data) => {setMotherName(data)}}
+                        placeholder="i.e. Anowara Begum"
                     />
 
                     <PiDataField 
                         id="piNomineeName" 
+                        refer={ piNomineeNameRef }
                         dataType="text"
-                        validData="আপনার নমিনীর নাম লিখুন" 
-                        label="গ) নমিনীর নাম : " 
-                        value={""}
-                        placeholder="যেমন: তাহমিদ আহমেদ"
+                        validData={nomineeNameError}
+                        label="গ) নমিনীর নাম* : " 
+                        value={ nomineeName }
+                        setValue={(data) => {setNomineeName(data)}}
+                        placeholder="i.e. Tahmid Ahmed"
                     />
 
                     <PiDataField
                         id="piNomineeRelation" 
+                        refer={ piNomineeRelshipRef }
                         dataType="text"
-                        validData="আপনার সাথে নমিনীর সম্পর্ক লিখুন" 
-                        label="ঘ) আপনার সাথে নমিনীর সম্পর্ক : " 
-                        value={""}
-                        placeholder="যেমন: ছেলে"
+                        validData={ nomineeRelshipError } 
+                        label="ঘ) আপনার সাথে নমিনীর সম্পর্ক* : " 
+                        value={ nomineeRelship }
+                        setValue={(data) => {setNomineeRelship(data)}}
+                        placeholder="i.e. Son"
                     />
 
 
 
                     <div className="piDataField" data-validate="আপনার বর্তমান ঠিকানা লিখুন">
                         <span className="piDataLabel">
-                            ঙ) বর্তমান ঠিকানা : 
+                            ঙ) বর্তমান ঠিকানা* : 
                         </span>
 
                         <div className='piDataInputField'>
-                            <textarea className="piDataInput" name="piPresentAddress" placeholder="যেমন: গ্রাম, ডাক, থানা ও জেলা" 
-                            value={presentAddressValue} onChange={(e) => setPresentAddressValue(e.target.value)} />
+                            <textarea className="piDataInput" name="piPresentAddress" placeholder="i.e. Vill: , P.O.: , P.S.: and Dist.: " 
+                            value={presentAddressValue} onChange={(e) => {setPresentAddressValue(e.target.value);}} />
 
-                            <button className="piDataClearBtn" onClick={presentAddressValueHandle}>×</button>
+                            <button className="piDataClearBtn" onClick={(e) => {e.preventDefault(); setPresentAddressValue("");}}>×</button>
                         </div>
                         
 
@@ -117,53 +194,59 @@ function PersonalInfo(){
 
                     <div className="piDataField" data-validate="আপনার স্থায়ী ঠিকানা লিখুন">
                         <span className="piDataLabel">
-                            চ) স্থায়ী ঠিকানা : 
+                            চ) স্থায়ী ঠিকানা* : 
                         </span>
 
-
                         <div className='piDataInputField'>
-                            <textarea className="piDataInput" name="piPermanantAddress" placeholder="যেমন: গ্রাম, ডাক, থানা ও জেলা" 
-                            value={permanantAddressValue} onChange={(e) => setPermanantAddressValue(e.target.value)} />
+                            <textarea className="piDataInput" name="piPermanantAddress" placeholder="i.e. Vill: , P.O.: , P.S.: and Dist.: " 
+                            value={permanantAddressValue} onChange={(e) => {setPermanantAddressValue(e.target.value);}} />
 
-                            <button className="piDataClearBtn" onClick={permanantAddressValueHandle}>×</button>
+                            <button className="piDataClearBtn" onClick={(e) => {e.preventDefault(); setPermanantAddressValue("");}}>×</button>
                         </div>
 
                     </div>
 
 
-
                     <PiDataField
                         id="piDOB" 
+                        refer={ piDOBRef }
                         dataType="date"
-                        validData="আপনার জন্ম তারিখ লিখুন" 
-                        label="ছ) জন্ম তারিখ : " 
-                        value={personal_data["DATE_OF_BIRTH"]}
-                        placeholder="যেমন: ৩০/০৮/১৯৮০"
+                        validData="" 
+                        label="ছ) জন্ম তারিখ* : " 
+                        value={ dob }
+                        setValue={(data) => {setDOB(data)}}
+                        placeholder="i.e. 1980/05/16"
                     />
 
 
                     <PiDataField
                         id="piNID" 
+                        refer={ piNIDRef }
                         dataType="text"
-                        validData="আপনার জাতীয় পরিচয়পত্র নম্বর লিখুন" 
-                        label="জ) আবেদনকারীর জাতীয় পরিচয়পত্র নম্বর : " 
-                        value={personal_data["NID_NO"]}
-                        placeholder="যেমন: ১২৩৪৫৬৭৮৯০"
+                        validData="" 
+                        label="জ) আবেদনকারীর জাতীয় পরিচয়পত্র নম্বর* : " 
+                        value={ nID }
+                        setValue={(data) => {setNID(data)}}
+                        placeholder="i.e. 1253141559"
                     />
 
 
 
                     <PiDataField
                         id="piNomineeNID" 
+                        refer={ piNomineeNIDRef }
                         dataType="text"
-                        validData="নমিনীর জাতীয় পরিচয়পত্র নম্বর লিখুন" 
-                        label="ঝ) নমিনীর জাতীয় পরিচয়পত্র নম্বর : " 
-                        value={""}
-                        placeholder="যেমন: ১৯৯৩৫৪৬৮৩৮৬৫২৩৪৫৭"
+                        validData={ nomineeNIDError } 
+                        label="ঝ) নমিনীর জাতীয় পরিচয়পত্র নম্বর* : " 
+                        value={ nomineeNID }
+                        setValue={(data) => {setNomineeNID(data)}}
+                        placeholder="i.e. 125632454565545179"
                     />
 
                     
                 </div>
+
+
 
                 <DoubleButton 
                     firstButtonName="পূর্ববর্তী"

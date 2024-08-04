@@ -4,26 +4,12 @@ import "../css_component/doubleButton.css"
 
 function DoubleButton(props){
 
-
-    function onFirstButtonHandle(e){
-        e.preventDefault();
-        props.clickedButton("first");
-
-    }
-
-    function onSecondButtonHandle(e){
-        e.preventDefault();
-        props.clickedButton("second");
-    }
-
-
-
     return(
         <div className='doubleButton'>
-            <button className='normalButton' onClick={onFirstButtonHandle} >
+            <button className='normalButton' onClick={(e) => {e.preventDefault(); props.clickedButton("first");}} >
                 {props.firstButtonName}
             </button>
-            <button className='normalButton' onClick={onSecondButtonHandle} >
+            <button className='normalButton' onClick={(e) => {e.preventDefault(); props.clickedButton("second");}} >
                 {props.secondButtonName}
             </button>
         </div>
