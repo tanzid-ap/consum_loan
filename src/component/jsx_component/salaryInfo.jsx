@@ -12,14 +12,12 @@ function SalaryInfo(props){
     var prevMonthName = [];
     var currYear = mydate.getFullYear();
     var currMonth = mydate.getMonth();
-    const prevMonthSal = [];
+    var prevMonthSal = [];
     const salText = ["ক) মূল বেতন : ","খ) মোট বেতন : ", "গ) মোট কর্তন : ", "ঘ) নীট বেতন : "];
 
     const salData = [];
     
-    for(let i=0;i<3;i++){
-        prevMonthName.push(month[currMonth-i-1] + ' ' + currYear);
-    }
+    
 
     for(let i=0;i<salary_file.length;i++){
         for(let j=2;j>=0;j--){
@@ -38,22 +36,34 @@ function SalaryInfo(props){
         
     }
 
-    
+    prevMonthSal = prevMonthSal.map(row=>row).reverse();
 
+    var prevMonSal = [];
+
+    for(let i=0;i<3;i++){
+        prevMonthName.push(month[currMonth-i-1] + ' ' + currYear);
+        prevMonSal.push([prevMonthName[i]]);
+        prevMonSal[i] = [...prevMonSal[i],...prevMonthSal[i]];
+    }
+
+    
     for(let i=0;i<4;i++){
         salData.push(
             <tbody>
                 <tr>
                     <td className='tableText'>{salText[i]}</td>
-                    <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' value={prevMonthSal[2][i]} name='prevMonth0BasicSalary' /></td>
+                    <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' value={prevMonthSal[0][i]} name='prevMonth0BasicSalary' /></td>
                     <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' value={prevMonthSal[1][i]} name='prevMonth1BasicSalary' /></td>
-                    <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' value={prevMonthSal[0][i]} name='prevMonth2BasicSalary' /></td>
+                    <td><input className='tableDataInput' type='text' placeholder='টাকার পরিমাণ' value={prevMonthSal[2][i]} name='prevMonth2BasicSalary' /></td>
                 </tr>
             </tbody>
         );
     }
     
 
+    var prevSal = {"PREV_MON_SAL": prevMonSal};
+
+    props.setSalData(prevSal);
     
 
     return(

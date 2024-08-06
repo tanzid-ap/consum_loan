@@ -9,10 +9,15 @@ import loan_file from "../employee_loan_file.json"
 
 function LoanInfo(){
 
-
     const loanNavigate = useNavigate();
     const { state } = useLocation();
-    var loan_data = state;
+    var loan_data = state["info"];
+
+    var state_used = "no";
+    
+    if(state["used"] === "yes"){
+        state_used = "yes";
+    }
 
 
     const table_data = [
@@ -26,7 +31,7 @@ function LoanInfo(){
         ["০৮","সমষ্টি"],
     ];
 
-    const loan_table_value = Array.from(Array(8), () => new Array(5).fill(0));
+    var loan_table_value = Array.from(Array(8), () => new Array(5).fill(0));
 
     var jsx_table_data = [];
 
@@ -63,8 +68,6 @@ function LoanInfo(){
     }
     
 
-
-
     for(let i=0;i<table_data.length;i++){
 
         var loan_amount = "loanAmount"+i
@@ -88,23 +91,17 @@ function LoanInfo(){
         )
     }
 
+    loan_table_value = loan_table_value[0].map((_, colIndex) => loan_table_value.map(row => row[colIndex]));
 
-    function validLoanInfo(){
-
-
-        return true;
-    }
-
+    loan_data["LOAN_DETAILS"] = loan_table_value;
+    
     function onLoanAuthenticate(button){
 
         if(button == "first")
-            loanNavigate("/application/3", {state : loan_data});
+            loanNavigate("/application/3", {state: {info: loan_data, used: "yes"}});
 
         if(button == "second"){
-            if(validLoanInfo()){
-                loanNavigate("/application/5", {state : loan_data});
-            }
-            
+            loanNavigate("/application/5", {state: {info: loan_data, used: state_used}});
         }
 
     }

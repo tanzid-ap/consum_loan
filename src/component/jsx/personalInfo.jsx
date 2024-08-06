@@ -11,6 +11,12 @@ function PersonalInfo(){
     const { state } = useLocation();
 
     var personal_data = state["info"];
+
+    var state_used = "no";
+    
+    if(state["used"] === "yes"){
+        state_used = "yes";
+    }
     
     if(state["used"] === "no"){
         personal_data["MOTHERS_NAME"] = "";
@@ -99,6 +105,7 @@ function PersonalInfo(){
         personal_data["MOTHERS_NAME"] = motherName;
         personal_data["NOMINEES_NAME"] = nomineeName;
         personal_data["NOMINEES_RELSHIP"] = nomineeRelship;
+        personal_data["NID_NO"] = nID;
         personal_data["NOMINEES_NID"] = nomineeNID;
 
         if(button == "first"){
@@ -108,7 +115,7 @@ function PersonalInfo(){
 
         if(button == "second"){
             if(validPersonalInfo()){
-                personalNavigate('/application/3', { state: {info: personal_data, used: "yes"} });
+                personalNavigate('/application/3', { state: {info: personal_data, used: state_used} });
             }
         }
 
@@ -118,11 +125,12 @@ function PersonalInfo(){
     return(
 
         <div>
+            
             <div className="loan_logo">
                 <Logo />
             </div>
-            <div className='perInfo'>
 
+            <div className='perInfo'>
 
                 <div className="personalInfo">
                     <div className="personalInfoLabel">
@@ -246,8 +254,6 @@ function PersonalInfo(){
                     
                 </div>
 
-
-
                 <DoubleButton 
                     firstButtonName="পূর্ববর্তী"
                     secondButtonName="পরবর্তী"
@@ -256,7 +262,6 @@ function PersonalInfo(){
 
             </div>
 
-           
         </div>
     )
 

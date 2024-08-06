@@ -7,7 +7,6 @@ function ServiceInfo(props){
 
     var service_data = props.service_data;
 
-
     var serv_type = false;
     if(service_data["APPOINTMENT_TYPE"] === "Permanent"){
         serv_type = true;
@@ -77,6 +76,15 @@ function ServiceInfo(props){
         setServCheckBox(tempServBox);
     }
 
+    var servData = {};
+    servData["IDNO"] = service_data["IDNO"];
+    servData["SERV_TYPE"] = serv_type;
+    servData["DATE_FIRST_JOIN"] = service_data["DATE_FIRST_JOIN"];
+    servData["SERV_PERIOD"] = yearDuration+" years, "+monthDuration+" months, "+dateDuration+" days";
+    servData["TIME_OF_RETIREMENT"] = date_of_birth;
+
+    props.setServData(servData);
+
 
     return(
 
@@ -92,7 +100,7 @@ function ServiceInfo(props){
                     dataType="text"
                     validData="" 
                     label="ক) বুয়েট আই.ডি. নং : " 
-                    value={service_data["IDNO"]}
+                    value={servData["IDNO"]}
                     placeholder="যেমন: T201614032"
                 />
 
@@ -132,7 +140,7 @@ function ServiceInfo(props){
                     dataType="text"
                     validData="" 
                     label="ঘ) এই বিশ্ববিদ্যালয়ে মোট চাকুরীকাল : " 
-                    value={yearDuration+" বছর, "+monthDuration+" মাস, "+dateDuration+" দিন"}
+                    value={ servData["SERV_PERIOD"] }
                     placeholder="যেমন: ১১ বছর ৮ মাস ১৬ দিন"
                 
                 />

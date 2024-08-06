@@ -14,6 +14,10 @@ function BasicInfo(){
     var basic_data = state["info"];
 
     var state_used = "no";
+    
+    if(state["used"] === "yes"){
+        state_used = "yes";
+    }
 
     if(state["used"] === "no"){
         basic_data["PROFILE_PIC"] = imgfile;
@@ -22,9 +26,7 @@ function BasicInfo(){
         basic_data["REASON_FOR_LOAN"] = "";
     }
 
-    if(state["used"] === "yes"){
-        state_used = "yes";
-    }
+    
 
     const profilePicRef = useRef(null);
     const applicantNameRef = useRef(null);

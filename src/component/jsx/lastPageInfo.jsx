@@ -11,7 +11,16 @@ function LastPageInfo(){
     const lastNavigate = useNavigate();
     const { state } = useLocation();
 
-    const [signFile, setSignFile] = useState(signImg);
+    var last_data = state["info"];
+
+    
+
+    if(state["used"] === "no" || typeof(last_data["SIGN_PIC"]) === "undefined"){
+        last_data["SIGN_PIC"] = signImg;
+    }
+
+
+    const [signFile, setSignFile] = useState(last_data["SIGN_PIC"]);
     const [signFileError, setSignFileError] = useState([]);
 
     const signPicRef = useRef(null);
@@ -48,11 +57,12 @@ function LastPageInfo(){
     function onLastAuthenticate(button){
 
         if(button == "first")
-            lastNavigate("/application/4", {state : state});
+            lastNavigate("/application/4", {state: {info: last_data, used: "yes"}});
 
         if(button == "second"){
             if(validLastInfo()){
-                lastNavigate("/application/preview", {state : state});
+                last_data["SIGN_PIC"] = signFile;
+                lastNavigate("/application/preview", {state: {info: last_data, used: "yes"}});
             }
         }
 

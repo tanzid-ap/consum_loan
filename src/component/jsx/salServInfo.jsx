@@ -12,23 +12,29 @@ function SalServInfo(){
     const salServNavigate = useNavigate();
     const { state } = useLocation();
 
-    const [servData, setServData] = useState([]);
+    var salServData = state["info"];
 
-
-    function validSalServInfo(){
-
-        return true;
+    var state_used = "no";
+    
+    if(state["used"] === "yes"){
+        state_used = "yes";
     }
+
+
+    const setSalServData = (data) => {
+
+        salServData = {...salServData, ...data};
+
+    };
+
 
     function onSalServAuthenticate(button){
 
         if(button == "first")
-            salServNavigate('/application/2', {state: state});
+            salServNavigate('/application/2', {state: {info: salServData, used: "yes"}});
 
         if(button == "second"){
-            if(validSalServInfo()){
-                salServNavigate('/application/4', {state: state});
-            }
+            salServNavigate('/application/4', {state: {info: salServData, used: state_used}});
         }
 
     }
@@ -42,9 +48,9 @@ function SalServInfo(){
 
             <div className='salServ_info'>
 
-                <ServiceInfo service_data={state["info"] } />
+                <ServiceInfo service_data={state["info"]}  setServData={(data) => {setSalServData(data)}} />
 
-                <SalaryInfo salary_data={state["info"]} />
+                <SalaryInfo salary_data={state["info"]} setSalData={(data) => {setSalServData(data)}} />
 
                 <DoubleButton 
                     firstButtonName="পূর্ববর্তী"
